@@ -1,14 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Tweet from '../components/Tweet';
+import TweetBody from './Tweet';
 
 class TweetsContainer extends React.Component {
 
-  render () {
+  state ={
+
+  }
+
+  render() {
     let tweets = this.props.tweetsList.map(tweet=> (
-      <Tweet key={tweet.id} tweet={tweet} />
+      <TweetBody key={tweet.id} tweet={tweet} />
     ))
+    console.log(this.props);
     return (
+
       <div className="tweets-container">
 
       {

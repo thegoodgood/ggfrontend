@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-class Tweet extends React.Component {
+class Hashtag extends React.Component {
 
   render () {
 
@@ -14,4 +14,4 @@ class Tweet extends React.Component {
   }
 }
 
-export default Tweet;
+export default Hashtag;

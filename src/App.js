@@ -1,60 +1,56 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import HasTagContainer from './containers/HashTagContainer'
-import TweetsContainer from './containers/TweetsContainer'
-import Header from './components/Header';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { Switch, Route } from "react-router-dom";
+import HomePage from "./components/HomePage";
 
 class App extends React.Component {
+  state = {
+    tweetsList: [],
+    trendingHashtags: [],
+    username: ""
+  };
 
-state = {
-  tweetsList: [],
-  trendingHashtags: []
+  componentDidMount() {
+    //---------------------------------fetch tweets
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ tweetsList: data });
+      });
+    //-------------------------fetch trending hashtags
 
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ trendingHashtags: data });
+      });
+  }
+  render() {
+    return (
+      <Switch>
+        <Route path="/signup" component={null} />
+        <Route path="/login" component={null} />
+        <Route
+          exact
+          path="/"
+          render={routerProps => (
+            <HomePage
+              {...routerProps}
+              tweetsList={this.state.tweetsList}
+              hashtagList={this.state.trendingHashtags}
+            />
+          )}
+        />
+      </Switch>
+    );
+  }
 }
+export default App;
 
-componentDidMount() {
-
-  //---------------------------------fetch tweets
-  fetch("https://jsonplaceholder.typicode.com/posts")
-  .then(res => res.json())
-  .then(data => {
-    this.setState({tweetsList: data})
-  })
-
-
-
-//-------------------------fetch trending hashtags
-
-
-fetch("https://jsonplaceholder.typicode.com/users")
-.then(res => res.json())
-.then(data => {
-  this.setState({trendingHashtags: data})
-})
-}
 /*
 // <header className="App-header">
 //   <img src={"https://i.pinimg.com/236x/8a/7c/be/8a7cbe603b6522b70f076c08d8ba3f50--boomerang-cartoon-network-powerpuff-girls.jpg"} className="App-logo" alt="logo" />
 // </header> */
 
-
-render() {
-  return (
-    <div className="App">
-
-        <Header />
-      <div>
-      <h1>Trending Topics</h1>
-      <HasTagContainer className="sidebar" hashtagList={this.state.trendingHashtags} />
-
-      <div className="main">
-      <TweetsContainer tweetsList= {this.state.tweetsList} />
-      </div>
-
-</div>
-    </div>
-  );
-  }
-}
-export default App;
+// <Route component={FourOhFourPage} />

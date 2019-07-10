@@ -1,18 +1,60 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
-class Tweet extends React.Component {
-
-  render () {
-
-    return (
-      <div className="tweet">
-        <h3>{this.props.tweet.title}</h3>
-        <p>{this.props.tweet.body}</p>
-
+  const TweetBox = (props) => {
+    return(
+      <div className="tweet-body">
+        {props.children}
       </div>
-    );
+    )
   }
-}
 
-export default Tweet;
+  const Image = (props) => {
+    return(
+      <img src={props.image} alt="Logo" className="picture">
+      </img>
+    )
+  }
+
+  const Handle = (props) => {
+    return(
+      <div className="handle">
+        {props.handle}
+      </div>
+    )
+  }
+
+  const Name = (props) => {
+    return(
+      <div className="name">
+        {props.name}
+      </div>
+    )
+  }
+
+  const Tweet = (props) => {
+    // console.log(props);
+    return(
+      <div className="tweet">
+        {props.tweet.title}
+      </div>
+    )
+  }
+
+  const TweetBody = (props) => {
+    return(
+      <TweetBox>
+        <div className="inner-body">
+          <Image image={props.image}/>
+          <div className="body">
+            <div className="inner-body">
+              <Name name={props.name}/>
+              <Handle handle={props.handle}/>
+            </div>
+            <Tweet tweet={props.tweet}/>
+          </div>
+        </div>
+      </TweetBox>
+    )
+  }
+
+export default TweetBody
