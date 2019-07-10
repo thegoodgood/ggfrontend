@@ -14,6 +14,7 @@ class HashTagContainer extends React.Component {
 
       return (
         <div>
+          <h3>Trending Topics</h3>
           {
             hashtags
           }

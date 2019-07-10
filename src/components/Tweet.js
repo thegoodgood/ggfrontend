@@ -10,7 +10,7 @@ import React from 'react'
 
   const Image = (props) => {
     return(
-      <img src={props.image} alt="Logo" className="picture">
+      <img src={"https://via.placeholder.com/50"} alt="Logo" className="picture">
       </img>
     )
   }
@@ -18,7 +18,7 @@ import React from 'react'
   const Handle = (props) => {
     return(
       <div className="handle">
-        {props.handle}
+        @twitter_handle
       </div>
     )
   }
@@ -26,16 +26,16 @@ import React from 'react'
   const Name = (props) => {
     return(
       <div className="name">
-        {props.name}
+        myusername
       </div>
     )
   }
 
   const Tweet = (props) => {
-    // console.log(props);
+    console.log(props);
     return(
       <div className="tweet">
-        {props.tweet.title}
+        {props.tweet.body}
       </div>
     )
   }

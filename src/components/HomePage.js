@@ -13,15 +13,16 @@ class HomePage extends React.Component {
       <div className="App">
 
     <Header />
-    <div>
-      <h1>Trending Topics</h1>
-      <HashTagContainer className="sidebar" hashtagList={this.props.hashtagList} />
-
-    <div className="main">
-      <TweetsContainer tweetsList= {this.props.tweetsList} />
+    <div className="sidebar">
+      
+      <HashTagContainer  hashtagList={this.props.hashtagList} />
     </div>
 
-  </div>
+    <div className="main">
+      <TweetsContainer tweetsList= {this.props.tweetsList} hashtagList={this.props.hashtagList} />
+    </div>
+
+
   </div>
     )
   }
