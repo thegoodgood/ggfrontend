@@ -1,16 +1,31 @@
 .App {
-  text-align: center;
+  text-align: left;
+  display: grid;
+  grid-template-columns: 2fr 4fr;
+  justify-items: center;
+}
+
+.main {
+  max-width: 800px;
+  float: left;
+  display: flex;
+}
+.sidebar {
+  max-width: 300px;
+  float: right;
+  display: flex;
+
 }
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+  height: 15vmin;
   pointer-events: none;
 }
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
