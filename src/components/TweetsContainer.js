@@ -15,7 +15,7 @@ class TweetsContainer extends React.Component {
     console.log(this.props);
     return (
 
-      <div className="tweets-container">
+      <div className="feed">
 
       {
         tweets
