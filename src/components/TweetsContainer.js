@@ -9,10 +9,11 @@ class TweetsContainer extends React.Component {
   }
 
   render() {
-    let tweets = this.props.tweetsList.map(tweet=> (
-      <TweetBody key={tweet.id} tweet={tweet} />
-    ))
-    console.log(this.props);
+    let tweets = this.props.tweetsList.map(tweet=> {
+      console.log(tweet)
+      return <TweetBody key={tweet.id} {...tweet} />
+    })
+    // console.log(this.props);
     return (
 
       <div className="feed">

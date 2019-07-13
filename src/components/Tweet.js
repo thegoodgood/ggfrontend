@@ -1,6 +1,8 @@
 import React from 'react'
 
+
   const TweetBox = (props) => {
+    console.log(props);
     return(
       <div className="tweet-body">
         {props.children}
@@ -10,7 +12,7 @@ import React from 'react'
 
   const Image = (props) => {
     return(
-      <img src={"https://via.placeholder.com/50"} alt="Logo" className="picture">
+      <img src={props.profile_image_url} alt="Profile pic" className="picture">
       </img>
     )
   }
@@ -18,7 +20,7 @@ import React from 'react'
   const Handle = (props) => {
     return(
       <div className="handle">
-        @twitter_handle
+        {props.handle}
       </div>
     )
   }
@@ -26,21 +28,21 @@ import React from 'react'
   const Name = (props) => {
     return(
       <div className="name">
-        myusername
+        {props.name}
       </div>
     )
   }
 
-  const Tweet = (props) => {
-    console.log(props);
+  const Content = (props) => {
     return(
       <div className="tweet">
-        {props.tweet.body}
+        {props.content}
       </div>
     )
   }
 
   const TweetBody = (props) => {
+
     return(
       <TweetBox>
         <div className="inner-body">
@@ -50,7 +52,7 @@ import React from 'react'
               <Name name={props.name}/>
               <Handle handle={props.handle}/>
             </div>
-            <Tweet tweet={props.tweet}/>
+            <Content content={props.content}/>
           </div>
         </div>
       </TweetBox>

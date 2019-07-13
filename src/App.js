@@ -13,20 +13,25 @@ class App extends React.Component {
 
   componentDidMount() {
     //---------------------------------fetch tweets
-    fetch("https://jsonplaceholder.typicode.com/posts")
+    fetch("http://localhost:3000/tweets")
       .then(res => res.json())
       .then(data => {
         this.setState({ tweetsList: data });
-      });
+      })
+
+
+    }
     //-------------------------fetch trending hashtags
 
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then(res => res.json())
-      .then(data => {
-        this.setState({ trendingHashtags: data });
-      });
-  }
+  //   fetch("https://jsonplaceholder.typicode.com/users")
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       this.setState({ trendingHashtags: data });
+  //     });
+  // }
   render() {
+
+    // console.log(this.state);
     return (
       <Switch>
         <Route path="/signup" component={null} />
