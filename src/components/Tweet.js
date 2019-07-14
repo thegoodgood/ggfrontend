@@ -48,10 +48,10 @@ import React from 'react'
     return(
       <TweetBox>
         <div className="outer-body">
-
+<Image image={props.profile_img_url}/>
           <div className="body">
             <div className="inner-body">
-              <Image image={props.profile_img_url}/>
+
               <Name name={props.user_name}/>
               <Handle handle={props.handle}/>
 

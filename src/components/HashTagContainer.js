@@ -9,12 +9,12 @@ class HashTagContainer extends React.Component {
 
       // console.log(this.props);
       let hashtags = this.props.hashtagList.map(hashtag=> (
-        <Hashtag key={hashtag.id} hashtag={hashtag} />
+        <Hashtag key={hashtag.id} {...hashtag} />
         ))
 
       return (
         <div>
-          <h3>Trending Topics</h3>
+          <h4>Trending Hashtags</h4>
           {
             hashtags
           }

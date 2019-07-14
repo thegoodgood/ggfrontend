@@ -4,11 +4,10 @@ import PropTypes from 'prop-types'
 class Hashtag extends React.Component {
 
   render () {
-
+console.log(this.props);
     return (
       <div className="hashtag">
-        <h3>{this.props.hashtag.username}</h3>
-
+        <p>#{this.props.keyword}</p>
       </div>
     );
   }

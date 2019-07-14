@@ -20,18 +20,18 @@ class App extends React.Component {
       })
 
 
-    }
-    //-------------------------fetch trending hashtags
 
-  //   fetch("https://jsonplaceholder.typicode.com/users")
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       this.setState({ trendingHashtags: data });
-  //     });
-  // }
+    // -------------------------fetch trending hashtags
+
+    fetch("http://localhost:3000/hashtags")
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ trendingHashtags: data });
+      });
+  }
   render() {
 
-    // console.log(this.state);
+    console.log(this.state);
     return (
       <Switch>
         <Route path="/signup" component={null} />
