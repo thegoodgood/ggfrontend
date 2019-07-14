@@ -2,7 +2,7 @@ import React from 'react'
 
 
   const TweetBox = (props) => {
-    console.log(props);
+
     return(
       <div className="tweet-body">
         {props.children}
@@ -11,8 +11,9 @@ import React from 'react'
   }
 
   const Image = (props) => {
+
     return(
-      <img src={props.profile_image_url} alt="Profile pic" className="picture">
+      <img src={props.image} alt={"Profile pic"} className="picture">
       </img>
     )
   }
@@ -20,12 +21,13 @@ import React from 'react'
   const Handle = (props) => {
     return(
       <div className="handle">
-        {props.handle}
+        @{props.handle}
       </div>
     )
   }
 
   const Name = (props) => {
+    console.log(props);
     return(
       <div className="name">
         {props.name}
@@ -45,14 +47,19 @@ import React from 'react'
 
     return(
       <TweetBox>
-        <div className="inner-body">
-          <Image image={props.image}/>
+        <div className="outer-body">
+
           <div className="body">
             <div className="inner-body">
-              <Name name={props.name}/>
+              <Image image={props.profile_img_url}/>
+              <Name name={props.user_name}/>
               <Handle handle={props.handle}/>
+
             </div>
+            <div className="content">
             <Content content={props.content}/>
+            </div>
+
           </div>
         </div>
       </TweetBox>
