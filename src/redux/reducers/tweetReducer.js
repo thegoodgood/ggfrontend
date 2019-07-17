@@ -1,10 +1,10 @@
-import { FETCH_TWEETS } from "./actions/types";
+import { FETCH_TWEETS } from "../actions/types";
 
-const initialState = {
+const defaultState = {
   tweets: []
 };
 
-export default function(state = initialState, action) {
+const tweetReducer = (state= defaultState, action) => {
   switch (action.type) {
     case FETCH_TWEETS:
       return {
@@ -15,3 +15,5 @@ export default function(state = initialState, action) {
       return state;
   }
 }
+
+export default tweetReducer

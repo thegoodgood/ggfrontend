@@ -1,10 +1,10 @@
-import { FETCH_HASHTAGS } from "./actions/types";
+import { FETCH_HASHTAGS } from "../actions/types";
 
-const initialState = {
+const defaultState = {
   hashtags: []
 };
 
-export default function(state = initialState, action) {
+const hashtagReducer = (state = defaultState, action) => {
   switch (action.type) {
     case FETCH_HASHTAGS:
       return {
@@ -14,4 +14,6 @@ export default function(state = initialState, action) {
     default:
       return state;
   }
-}
+};
+
+export default hashtagReducer;

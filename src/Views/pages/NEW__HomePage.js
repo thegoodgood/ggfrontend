@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import HashTagContainer from './HashTagContainer'
-import TweetsContainer from './TweetsContainer'
 import Header from './Header.js';
 import Footer from './Footer';
 import TweetBody from './Tweet';

@@ -1,8 +1,11 @@
-import React from "react";
+import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
-import HomePage from "./components/HomePage";
+import Pages from './Views/pages'
+import HomePage from "./Components/HomePage";
+
+import Nav from "./Views/components/Nav";
 
 class App extends React.Component {
   state = {
@@ -17,9 +20,7 @@ class App extends React.Component {
       .then(res => res.json())
       .then(data => {
         this.setState({ tweetsList: data });
-      })
-
-
+      });
 
     // -------------------------fetch trending hashtags
 
@@ -30,12 +31,11 @@ class App extends React.Component {
       });
   }
   render() {
-
     console.log(this.state);
     return (
       <Switch>
         <Route path="/signup" component={null} />
-        <Route path="/login" component={null} />
+        <Route path="/profile" component={null} />
         <Route
           exact
           path="/"

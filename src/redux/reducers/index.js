@@ -7,7 +7,7 @@ import hashtagReducer from './hashtagReducer';
 //   hashtags: hashtagReducer
 // });
 
-export default combineReducers({
+export const rootReducer =  combineReducers({
   tweetReducer,
   hashtagReducer
 });
