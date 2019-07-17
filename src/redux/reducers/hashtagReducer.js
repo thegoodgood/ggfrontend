@@ -1,4 +1,4 @@
-import { FETCH_HASHTAGS } from "./types";
+import { FETCH_HASHTAGS } from "./actions/types";
 
 const initialState = {
   hashtags: []
