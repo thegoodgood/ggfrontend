@@ -38,7 +38,7 @@ import React from 'react'
   const Content = (props) => {
     return(
       <div className="tweet">
-        {props.content}
+        {props.content}stom
       </div>
     )
   }
@@ -48,7 +48,7 @@ import React from 'react'
     return(
       <TweetBox>
         <div className="outer-body">
-<Image image={props.profile_img_url}/>
+          <Image image={props.profile_img_url}/>
           <div className="body">
             <div className="inner-body">
 
