@@ -1,6 +1,6 @@
 import { FETCH_TWEETS } from "./types";
 
-export const fetchTweets = () => dispatch => {
+export const fetchTweetsAction = () => dispatch => {
   fetch("http://localhost:3000/tweets")
     .then(res => res.json())
     .then(data => {
