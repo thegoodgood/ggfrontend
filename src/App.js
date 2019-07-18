@@ -8,28 +8,17 @@ import HomePage from "./Components/HomePage";
 import Nav from "./Views/components/Nav";
 
 class App extends React.Component {
+
+
   state = {
     tweetsList: [],
     trendingHashtags: [],
     username: ""
   };
 
-  componentDidMount() {
-    //---------------------------------fetch tweets
-    fetch("http://localhost:3000/tweets")
-      .then(res => res.json())
-      .then(data => {
-        this.setState({ tweetsList: data });
-      });
-
-    // -------------------------fetch trending hashtags
-
-    fetch("http://localhost:3000/hashtags")
-      .then(res => res.json())
-      .then(data => {
-        this.setState({ trendingHashtags: data });
-      });
-  }
+componentDidMount() {
+  const {tweets, hashtags } = this.props
+}
   render() {
     console.log(this.state);
     return (

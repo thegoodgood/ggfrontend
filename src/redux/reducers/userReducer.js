@@ -4,7 +4,7 @@ import {
   GET_USER,
   USER_LOGIN,
   USER_LOGOUT
-} from '../Redux/actions/types';
+} from '../actions/types';
 
 const defaultState = {}
 
@@ -19,6 +19,7 @@ const userReducer = (state = defaultState, action) => {
     case USER_LOGIN:
       return action.payload;
     case USER_LOGOUT:
+      localStorage.clear()
       return {};
     default:
       return state;

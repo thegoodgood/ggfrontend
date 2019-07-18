@@ -4,7 +4,7 @@ import {
   GET_USER,
   USER_LOGIN,
   USER_LOGOUT
-} from '../Redux/actions/types';
+} from './types';
 
 export const getUserAction = user => ({
   type: GET_USER,

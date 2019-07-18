@@ -14,13 +14,13 @@ class HomePage extends React.Component {
     return (
 
     <div className="App">
-<Nav />
+
     <div className="grid">
 
     <div className="item">
       <Header />
     </div>
-
+    <Nav />
     <div className="item feed">
       <TweetsContainer tweetsList= {this.props.tweetsList} hashtagList={this.props.hashtagList} />
     </div>
