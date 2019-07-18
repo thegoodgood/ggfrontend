@@ -1,4 +1,6 @@
 export const FETCH_TWEETS = 'FETCH_TWEETS';
+export const SAVE_ALL_TWEETS = 'SAVE_ALL_TWEETS' 
+
 export const FETCH_HASHTAGS = 'FETCH_HASHTAGS';
 
 export const CREATE_USER = 'CREATE_USER';

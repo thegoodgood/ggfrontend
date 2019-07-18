@@ -1,14 +1,13 @@
-import { FETCH_TWEETS } from "./types";
+import { FETCH_TWEETS,SAVE_ALL_TWEETS } from "./types";
 
-export const fetchTweetsAction = () => dispatch => {
-  fetch("http://localhost:3000/tweets")
-    .then(res => res.json())
-    .then(data => {
-      dispatch({
-        type: FETCH_TWEETS,
-        payload: data
-      });
-    });
-};
+export const fetchTweets = tweets => ({
+  type: FETCH_TWEETS,
+  payload: tweets
+});
+
+export const saveAllTweets = tweets => ({
+  type: SAVE_ALL_TWEETS,
+  payload: tweets
+});
 
 // TODO: confirm that payload should be data

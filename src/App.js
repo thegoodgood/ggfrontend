@@ -10,7 +10,6 @@ import HomePage from "./Views/pages/HomePage";
 import Nav from "./Views/components/Nav";
 
 const App = props => {
-console.log(props);
       return (
       < HomePage />
     )
