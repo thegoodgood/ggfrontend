@@ -24,10 +24,3 @@ const tweetReducer = (state= defaultState, action) => {
 }
 
 export default tweetReducer
-
-// return {
-//   ...state,
-//   tweets:{
-//   ...state,
-//   tweets: action.payload}
-// };

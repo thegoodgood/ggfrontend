@@ -4,13 +4,11 @@ import { Link } from "react-router-dom";
 import { userLogoutAction } from "../../Redux/actions/userActions";
 
 const Nav = props => {
-  console.log(props);
   const handleLogout = () => {
     props.dispatchLogout();
   };
 
   const handleLogin = () => {};
-  console.log(props);
   return <nav id="main-nav">{props.username ? userNav() : guestNav()}</nav>;
 };
 

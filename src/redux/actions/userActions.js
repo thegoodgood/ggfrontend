@@ -1,30 +1,23 @@
-import {
-  CREATE_USER,
-  DELETE_USER,
-  GET_USER,
-  USER_LOGIN,
-  USER_LOGOUT
-} from './types';
 
 export const getUserAction = user => ({
-  type: GET_USER,
+  type: "GET_USER",
   payload: user,
 });
 
 export const userLoginAction = user => ({
-  type: USER_LOGIN,
+  type: "USER_LOGIN",
   payload: user,
 });
 
 export const userLogoutAction = () => ({
-  type: USER_LOGOUT,
+  type: "USER_LOGOUT",
 });
 
 export const createUserAction = user => ({
-  type: CREATE_USER,
+  type: "CREATE_USER",
   payload: user,
 });
 
 export const deleteUserAction = () => ({
-  type: DELETE_USER,
+  type: "DELETE_USER",
 });

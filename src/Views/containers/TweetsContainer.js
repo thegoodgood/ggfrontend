@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import TweetBody from "../components/Tweet";
-import {fetchTweets} from '../../Redux/actions/tweetActions'
+import {fetchTweets, saveAllTweets} from '../../Redux/actions/tweetActions'
 import {connect} from 'react-redux';
 
 class TweetsContainer extends React.Component {
@@ -35,7 +35,7 @@ class TweetsContainer extends React.Component {
   const mapDispatchToProps = (dispatch) => {
     return {
       fetchTweets: () => {dispatch(fetchTweets())}, //tweetAction name
-      saveAllTweets: (tweets) => {dispatch({type: "SAVE_ALL_TWEETS", payload: tweets})}
+      saveAllTweets: (tweets) => {dispatch({type:"SAVE_ALL_TWEETS", payload: tweets})}
       }
     }
 

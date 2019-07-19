@@ -3,7 +3,11 @@ export const FETCH_TWEETS = 'FETCH_TWEETS';
 export const SAVE_ALL_TWEETS = 'SAVE_ALL_TWEETS'
 
 export const SEARCH_TWEETS = 'SEARCH_TWEETS'
+
+
+//----------------------------HASHTAGS
 export const FETCH_HASHTAGS = 'FETCH_HASHTAGS';
+export const SAVE_ALL_HASHTAGS = 'SAVE_ALL_HASHTAGS'
 
 
 
