@@ -10,7 +10,8 @@ const Nav = props => {
   };
 
   const handleLogin = () => {};
-  return <nav id="main-nav">{props.username ? userNav : guestNav}</nav>;
+  console.log(props);
+  return <nav id="main-nav">{props.username ? userNav() : guestNav()}</nav>;
 };
 
 const userNav = props => {
@@ -25,6 +26,7 @@ const userNav = props => {
   );
 };
 
+//---------------WHAT A GUEST USER SEES
 const guestNav = props => {
   return (
     <Fragment>
@@ -34,6 +36,8 @@ const guestNav = props => {
     </Fragment>
   );
 };
+
+//------------------------HANDLE STATE/ STORE
 
 const mapStateToProps = state => {
   return {

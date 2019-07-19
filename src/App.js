@@ -2,19 +2,26 @@ import "./App.css";
 
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 import { Switch, Route } from "react-router-dom";
-import Pages from './Views/pages'
+import Pages from "./Views/pages";
 import HomePage from "./Views/pages/HomePage";
 import Nav from "./Views/components/Nav";
+import TweetTopics from "./Views/components/TweetTopics";
+import Header from "./Views/components/Header.js";
 
 const App = props => {
-      return (
-      < HomePage />
-    )
-}
+  return (
+    <Fragment>
+      <Nav />
 
+      <TweetTopics />
+
+      <HomePage />
+    </Fragment>
+  );
+};
 
 // const mapStateToProps = state => {
 //   return ({
