@@ -2,12 +2,12 @@ import { FETCH_TWEETS,SAVE_ALL_TWEETS } from "./types";
 import { FETCH_HASHTAGS,SAVE_ALL_HASHTAGS } from "./types";
 
 export const fetchTweets = tweets => ({
-  type: FETCH_TWEETS,
+  type: "FETCH_TWEETS",
   payload: tweets
 });
 
 export const saveAllTweets = tweets => ({
-  type: SAVE_ALL_TWEETS,
+  type: "SAVE_ALL_TWEETS",
   payload: tweets
 });
 
@@ -20,11 +20,11 @@ export const saveAllTweets = tweets => ({
 
 
 export const fetchHashtags = hashtags => ({
-  type: FETCH_HASHTAGS,
+  type: "FETCH_HASHTAGS",
   payload: hashtags
 });
 
 export const saveAllHashtags = hashtags => ({
-  type: SAVE_ALL_HASHTAGS,
+  type: "SAVE_ALL_HASHTAGS",
   payload: hashtags
 });

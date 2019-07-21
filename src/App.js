@@ -7,21 +7,47 @@ import { Link } from "react-router-dom";
 import { Switch, Route } from "react-router-dom";
 import Pages from "./Views/pages";
 import HomePage from "./Views/pages/HomePage";
+import LoginPage from "./Views/pages/LoginPage";
 import Nav from "./Views/components/Nav";
 import TweetTopics from "./Views/components/TweetTopics";
 import Header from "./Views/components/Header.js";
 
-const App = props => {
+// const App = props => {
+class App extends React.Component {
+  state = {
+    page: 'login'
+  }
+  redirect = page => {
+    this.setState({ page: page})
+  }
+componentDidMount() {
+  console.log(localStorage.token);
+  if(localStorage.token) {
+    this.redirect('home')
+  }
+}
+
+  render() {
+    switch(this.state.page) {
+      case 'login':
+      return <LoginPage redirect={this.redirect} />
+
+    case 'home':
+    return <HomePage />
+  }
   return (
     <Fragment>
+
       <Nav />
 
       <TweetTopics />
 
-      <HomePage />
+
+
     </Fragment>
-  );
-};
+  )
+}
+}
 
 // const mapStateToProps = state => {
 //   return ({

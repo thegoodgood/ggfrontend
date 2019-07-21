@@ -15,6 +15,7 @@ const HomePage = props => {
 
     return (
       <div>
+      <h1> Hello user</h1>
     <TweetsContainer />
     <HashtagsContainer />
     </div>
