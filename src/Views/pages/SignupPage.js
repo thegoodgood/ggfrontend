@@ -2,10 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from "react-redux";
 import { userLoginAction, userLogoutAction } from "../../Redux/actions/userActions";
 
-/**
- * LoginPage
- */
-export class LoginPage extends Component { // eslint-disable-line react/prefer-stateless-function
+export class SignupPage extends Component { // eslint-disable-line react/prefer-stateless-function
   state = {
     username: "",
     password: ""
@@ -53,4 +50,4 @@ const mapDispatchToProps = dispatch => ({
 
 
 
-  export default LoginPage;
+  export default SignupPage;

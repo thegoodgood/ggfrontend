@@ -12,15 +12,13 @@ import TweetTopics from "../components/TweetTopics";
 class HomePage extends React.Component {
 
   render() {
-    console.log(this.state);
-    console.log(this.props);
+
     return (
       <div>
         <Nav />
         <ProfilePage />
         <TweetTopics />
         <TweetsContainer />
-
         <HashtagsContainer />
       </div>
     );

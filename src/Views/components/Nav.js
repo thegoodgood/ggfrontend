@@ -10,7 +10,7 @@ const Nav = props => {
   };
 
   const handleLogin = () => {};
-  return <nav id="main-nav">{props.name ? userNav() : guestNav()}</nav>;
+  return <nav id="main-nav">{props.username ? userNav() : guestNav()}</nav>;
 };
 
 //---------------WHAT A LOGGED IN USER SEES
@@ -43,7 +43,7 @@ const guestNav = props => {
 const mapStateToProps = state => {
   return {
     tweets: state.tweets.tweets,
-    currentUser: state.user
+    currentUser: state.usersername
   };
 };
 
