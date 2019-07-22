@@ -19,7 +19,7 @@ class TweetsContainer extends React.Component {
     });
 
     return (
-      <div>
+      <div className="TweetsContainer">
         {tweets}
        </div>
     )

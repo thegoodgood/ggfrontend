@@ -80,16 +80,6 @@
   float: left;
 }
 
-.tweet-body {
-  /* display: flex; */
-  float: left;
-  flex-direction: column;
-  vertical-align: middle;
-  width: 100%;
-  height: auto;
-  background-color: white;
-  margin:10px 0 10px 0px;
-}
 
 .body {
   max-width: 100%;
@@ -151,13 +141,13 @@
   line-height: 1x;
   padding-left: 10px;
 
-  width: 100%;
+  /* width: 700px;
   display: inline-flex;
-  vertical-align: middle;
+  vertical-align: middle; */
 }
 
 div.main {
-  width: 600px;
+  width: 700px;
   align-self: center;
 }
 
@@ -169,6 +159,13 @@ div.main {
 }
 .App-link {
   color: #61dafb;
+}
+
+.hashTag {
+    flex: auto;
+    float: left;
+    width: fit-content;
+    margin: 0 5px 5px 5px;
 }
 
 @keyframes App-logo-spin {

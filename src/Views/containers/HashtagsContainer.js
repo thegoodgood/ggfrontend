@@ -12,18 +12,21 @@ class HashtagsContainer extends React.Component {
       .then(hashtags => this.props.saveAllHashtags(hashtags))
       }
 
+
   render() {
-    console.log(this.props.hashtags);
 
-    // let hashtag =
-
+    let hashtags = this.props.hashtags.hashtags.map(hashtag=> (
+      <div className="hashTag">  {hashtag.keyword} </div>
+      ))
 
     return (
-      <div>
-        {null}
+      <div className = "hashtagContainer">
+      <h2>Trending Topics</h2>
+        {hashtags}
        </div>
     )
   }
+
 }
 
   function mapStateToProps(state, hashtags) {

@@ -1,30 +1,33 @@
-import React from 'react';
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 import Nav from "../components/Nav";
-import { connect } from 'react-redux'
-import TweetsContainer  from '../containers/TweetsContainer'
-import HashtagsContainer  from '../containers/HashtagContainer'
-
-import TopicsContainer  from '../containers/TweetsContainer'
+import { connect } from "react-redux";
+import TweetsContainer from "../containers/TweetsContainer";
+import HashtagsContainer from "../containers/HashtagsContainer";
+import ProfilePage from "./ProfilePage";
+import TopicsContainer from "../containers/TweetsContainer";
+import TweetTopics from "../components/TweetTopics";
 // import Layouts from '../layouts'
 
+class HomePage extends React.Component {
 
-
-
-const HomePage = props => {
-
+  render() {
+    console.log(this.state);
+    console.log(this.props);
     return (
       <div>
-      <h1> Hello user</h1>
-    <TweetsContainer />
-    <HashtagsContainer />
-    </div>
-  )
+        <Nav />
+        <ProfilePage />
+        <TweetTopics />
+        <TweetsContainer />
+
+        <HashtagsContainer />
+      </div>
+    );
   }
+}
 
-
-export default HomePage
-  // export default connect(mapStateToProps, null)(HomePage)
-
+export default HomePage;
+// export default connect(mapStateToProps, null)(HomePage)
 
 //       />

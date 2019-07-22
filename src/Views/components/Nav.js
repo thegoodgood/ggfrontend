@@ -1,18 +1,21 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { userLogoutAction } from "../../Redux/actions/userActions";
+import { userLoginAction, userLogoutAction } from "../../Redux/actions/userActions";
 
 const Nav = props => {
   const handleLogout = () => {
     props.dispatchLogout();
+    localStorage.clear()
   };
 
   const handleLogin = () => {};
-  return <nav id="main-nav">{props.username ? userNav() : guestNav()}</nav>;
+  return <nav id="main-nav">{props.name ? userNav() : guestNav()}</nav>;
 };
 
+//---------------WHAT A LOGGED IN USER SEES
 const userNav = props => {
+  console.log(this.props);
   return (
     <Fragment>
       <Link to="/">Home</Link>
@@ -24,11 +27,11 @@ const userNav = props => {
   );
 };
 
-//---------------WHAT A GUEST USER SEES
+//---------------WHAT A GUEST SEES
 const guestNav = props => {
   return (
-    <Fragment>
-      <Link to="/">Home</Link>
+    <Fragment className="nav" >
+      <Link to="/" >Home</Link>
       <Link to="/signup">Sign Up</Link>
       <Link to="/login">Log in</Link>
     </Fragment>
@@ -45,7 +48,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  dispatchLogout: () => dispatch(userLogoutAction())
+  dispatchLogout: () => dispatch(userLogoutAction()),
+  dispatchLogin: () => dispatch(userLoginAction())
 });
 
 export default connect(

@@ -42,7 +42,7 @@ var ReactDOM = require('react-dom');
   const Content = (props) => {
     return(
       <div className="tweet">
-        {props.content}stom
+        {props.content}
       </div>
     )
   }

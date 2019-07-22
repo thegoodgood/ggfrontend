@@ -1,4 +1,6 @@
 import "./App.css";
+import "./Views/containers/containers.css";
+import "./Views/components/components.css";
 
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
@@ -10,43 +12,47 @@ import HomePage from "./Views/pages/HomePage";
 import LoginPage from "./Views/pages/LoginPage";
 import Nav from "./Views/components/Nav";
 import TweetTopics from "./Views/components/TweetTopics";
+import HashtagsContainer from "./Views/containers/HashtagsContainer";
 import Header from "./Views/components/Header.js";
 
 // const App = props => {
 class App extends React.Component {
   state = {
-    page: 'login'
-  }
+    page: "login"
+  };
   redirect = page => {
-    this.setState({ page: page})
+    this.setState({ page: page });
+  };
+  componentDidMount() {
+    // console.log(localStorage.token);
+
+    if (localStorage.token) {
+      this.redirect("home");
+    }
   }
-componentDidMount() {
-  console.log(localStorage.token);
-  if(localStorage.token) {
-    this.redirect('home')
-  }
-}
+
+
 
   render() {
-    switch(this.state.page) {
-      case 'login':
-      return <LoginPage redirect={this.redirect} />
 
-    case 'home':
-    return <HomePage />
+    switch (this.state.page) {
+      case "login":
+        return <LoginPage redirect={this.redirect} />;
+
+      case "home":
+        return <HomePage />;
+    }
+    return (
+      <Fragment className="app">
+
+        <Nav />
+
+        <TweetTopics />
+
+        <HashtagsContainer />
+      </Fragment>
+    );
   }
-  return (
-    <Fragment>
-
-      <Nav />
-
-      <TweetTopics />
-
-
-
-    </Fragment>
-  )
-}
 }
 
 // const mapStateToProps = state => {
