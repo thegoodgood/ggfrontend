@@ -7,7 +7,12 @@ import {
 } from '../actions/types';
 
 const defaultState = {
+<<<<<<< HEAD
   username: ""
+=======
+  username: "",
+  password: ""
+>>>>>>> sundNight
 }
 
 const userReducer = (state = defaultState, action) => {

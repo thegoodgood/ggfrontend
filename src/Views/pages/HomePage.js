@@ -7,16 +7,22 @@ import HashtagsContainer from "../containers/HashtagsContainer";
 import ProfilePage from "./ProfilePage";
 import TopicsContainer from "../containers/TweetsContainer";
 import TweetTopics from "../components/TweetTopics";
-// import Layouts from '../layouts'
+import Header from "../components/Header";
+
 
 class HomePage extends React.Component {
 
   render() {
+<<<<<<< HEAD
 
+=======
+    
+    console.log(this.props);
+>>>>>>> sundNight
     return (
       <div>
-        <Nav />
-        <ProfilePage />
+        <Header />
+        <Nav/>
         <TweetTopics />
         <TweetsContainer />
         <HashtagsContainer />
@@ -26,6 +32,3 @@ class HomePage extends React.Component {
 }
 
 export default HomePage;
-// export default connect(mapStateToProps, null)(HomePage)
-
-//       />

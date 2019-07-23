@@ -3,7 +3,7 @@ import {
   saveAllTweets
 } from './tweetActions';
 
-import {BASE_URL} from '../../ApiConstants'
+import {BASE_URL} from '../../apiConstants'
 
 
 //-------------FETCH TWEETS

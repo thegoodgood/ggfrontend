@@ -34,9 +34,10 @@ div.topics {
   font-weight: bold;
      color: red;
 }
-h1 {
+.header {
   height: auto;
   font-weight: bold;
+  height: 25px;
   width: auto;
      background-color: orange;
      -webkit-animation: random 45s infinite;
@@ -66,7 +67,10 @@ h1 {
 
 } */
 
-
+nav a {
+  font-size: 18px;
+  margin: 10px;
+}
 div.tweet-body {
   /* display: flex; */
   float: left;

@@ -1,84 +1,103 @@
 import {
   getUserAction,
-  createUserAction,
-  deleteUserAction,
-  loginUserAction,
-} from '../redux/actions/UserActions';
+//   userSignupAction,
+//   deleteUserAction,
+//   loginUserAction,
+} from './userActions';
 
-import {BASE_URL} from '.../ApiConstants'
+// const BASE_URL= 'http://localhost:3000'
 
 
-//-------------FETCH USERS
+//-----------------------FETCH USERS
 
 export const getUserFromDB = () => dispatch => {
-  fetch(`${BASE_URL}/get_user`)
+  fetch(`'http://localhost:3000'/get_user`)
     .then(r => r.json())
     .then(user => {
       dispatch(getUserAction(user));
     });
 };
 
-//--------------------CREATE NEW USERS
-const createUserConfig = user => ({
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-    Accepts: 'application/json',
-  },
-  body: JSON.stringify(user),
-});
-
-export const createUserToDB = user => dispatch => {
-  fetch(`${BASE_URL}/users`, createUserConfig(user))
-    .then(r => r.json())
-    .then(data => {
-      dispatch(createUserAction(data.user));
-      localStorage.setItem('token', data.jwt);
-    });
-};
+//-------------------------------- NEW USER SIGNUP
+export const userSignupAction = (username, password) => dispatch => {
+  dispatch({ type: "SIGNUP_REQUEST_START" })
+  return fetch('http://localhost:3000/signup', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+    },
+    body: JSON.stringify({
+      username: username,
+      password: password
+    })
+  })
+  .then(res => res.json())
+  .then((data) => {
+    localStorage.token = data.token
+    dispatch({ type: 'SIGNUP_REQUEST_SUCCESS' })
+  })
+  .catch(error => {
+    dispatch({ type: 'SIGNUP_REQUEST_FAILURE', error: error })
+  })
+}
 
 //-------------------------------- USER LOGIN
-const loginUserConfig = user => ({
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-    Accepts: 'application/json',
-  },
-  body: JSON.stringify(user),
-});
+export const userLoginAction = (username, password) => dispatch => {
+  dispatch({ type: "LOGIN_REQUEST_START" })
+  return fetch('http://localhost:3000/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+    },
+    body: JSON.stringify({
+      username: username,
+      password: password
+    })
+  })
+  .then(res => res.json())
+  .then((data) => {
+    localStorage.token = data.token
+    dispatch({ type: 'LOGIN_REQUEST_SUCCESS' })
+  })
+  .catch(error => {
+    dispatch({ type: 'LOGIN_REQUEST_FAILURE', error: error })
+  })
+}
 
-export const loginUserToDB = user => dispatch => {
-  fetch(`${BASE_URL}/login`, loginUserConfig(user))
-    .then(r => r.json())
-    .then(data => {
-      dispatch(loginUserAction(data.user));
-      localStorage.setItem('token', data.jwt);
-    });
-};
 
-//-------------------------------- PERSIST USER LOGIN
+//-------------------------------- CURRENT USER
+export const getCurrentUser = () => dispatch => {
+  dispatch({type: "GET_PROFILE_REQUEST_START"})
 
-const getUserConfig = () => ({
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-    Accepts: 'application/json',
-    Authorization: `Bearer ${localStorage.getItem('token')}`,
-  },
-});
-
-export const persistUserFromDB = () => dispatch => {
-  fetch(`${BASE_URL}/auth`, getUserConfig())
-    .then(r => r.json())
-    .then(data => {
-      dispatch(getUserAction(data));
-    });
-};
-
-// 'Authorization': `Bearer ${localStorage.getItem('token')}`
-
-// get show user
-export const fetchUserFromDB = id => {
-  return fetch(`${BASE_URL}/users/${id}`)
-  .then(r => r.json());
-};
+  return fetch('http://localhost:3000/profile', {
+    headers: {
+         "Authorization": `Bearer ${localStorage.token}`
+       }
+     }).then((response) => {
+       if (response.status === 401) {
+         throw new Error("Unauthorized")
+       }
+       return response
+     }).then(response => {
+       return response.json()
+     }).then((data) => {
+       if (data.message === "Please log in") {
+         throw new Error("Unauthorized")
+       }
+       return data
+     }).then(user => {
+       dispatch({
+         type: "GET_PROFILE_REQUEST_SUCCESS",
+         user: user
+       })
+     }).catch((error) => {
+       if (error.message === "Unauthorized") {
+         dispatch({
+           type: "GET_PROFILE_REQUEST_FAILURE",
+           error: error
+         })
+       }
+     })
+   }

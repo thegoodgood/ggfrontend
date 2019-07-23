@@ -1,12 +1,11 @@
 import "./App.css";
-import "./Views/containers/containers.css";
-import "./Views/components/components.css";
+import "./views/containers/containers.css";
+import "./views/components/components.css";
 
-import React, { Component, Fragment } from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import React from "react";
 
 import { Switch, Route } from "react-router-dom";
+<<<<<<< HEAD
 
 import Pages from "./Views/pages";
 import HomePage from "./Views/pages/HomePage";
@@ -53,3 +52,26 @@ class App extends React.Component {
 
 
 export default App
+=======
+import Pages from "./views/pages";
+import Nav from "./views/components/Nav";
+
+
+
+const App = () => {
+  return (
+    <div>
+      
+      <Switch>
+        <Route exact path="/signup"       component={Pages.SignupPage} />
+        <Route exact path="/login"        component={Pages.LoginPage} />
+        <Route exact path="/home"     component={Pages.HomePage} />
+        <Route exact path="/profile"      component={Pages.ProfilePage} />
+        <Route component={Pages.HomePage} />
+      </Switch>
+    </div>
+  )
+}
+
+export default App;
+>>>>>>> sundNight

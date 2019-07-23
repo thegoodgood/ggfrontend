@@ -13,9 +13,9 @@ export const userLogoutAction = () => ({
   type: "USER_LOGOUT",
 });
 
-export const createUserAction = user => ({
-  type: "CREATE_USER",
-  payload: user,
+export const userSignupAction = user => ({
+  type: "USER_SIGNUP",
+  payload: user
 });
 
 export const deleteUserAction = () => ({
