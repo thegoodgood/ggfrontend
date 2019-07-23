@@ -26,6 +26,7 @@ export class LoginPage extends Component { // eslint-disable-line react/prefer-s
     .then(res => res.json())
     .then(parsedResponse => {
       localStorage.setItem('token',parsedResponse.token )
+      console.log(parsedResponse);
       this.props.redirect('home')
     })
   }
