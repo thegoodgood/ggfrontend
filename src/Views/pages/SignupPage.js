@@ -1,11 +1,8 @@
 import React, { Component, PropTypes } from 'react';
-<<<<<<< HEAD
-import { connect } from "react-redux";
-import { userLoginAction, userLogoutAction } from "../../redux/actions/userActions";
-=======
+
 import { connect } from 'react-redux'
 import { userSignupAction, userLoginAction } from '../../redux/actions/userAdapter'
->>>>>>> sundNight
+
 
 export class SignupPage extends Component { // eslint-disable-line react/prefer-stateless-function
   state = {
