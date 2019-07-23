@@ -7,17 +7,18 @@ import HashtagsContainer from "../containers/HashtagsContainer";
 import ProfilePage from "./ProfilePage";
 import TopicsContainer from "../containers/TweetsContainer";
 import TweetTopics from "../components/TweetTopics";
-// import Layouts from '../layouts'
+import Header from "../components/Header";
+
 
 class HomePage extends React.Component {
 
   render() {
-    console.log(this.state);
+    
     console.log(this.props);
     return (
       <div>
-        <Nav />
-        <ProfilePage />
+        <Header />
+        <Nav/>
         <TweetTopics />
         <TweetsContainer />
 
@@ -28,6 +29,3 @@ class HomePage extends React.Component {
 }
 
 export default HomePage;
-// export default connect(mapStateToProps, null)(HomePage)
-
-//       />

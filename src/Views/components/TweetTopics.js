@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import TweetBody from "../components/Tweet";
-import { fetchTweets } from "../../Redux/actions/tweetActions";
+import { fetchTweets } from "../../redux/actions/tweetActions";
 import { connect } from "react-redux";
 
 class TweetsTopics extends React.Component {

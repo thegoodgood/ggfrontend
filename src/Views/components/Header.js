@@ -5,7 +5,7 @@ import React from "react";
       render(){
           return (
              <div className="header">
-                 Header
+                 
                </div>
 
          );

@@ -6,7 +6,10 @@ import {
   USER_LOGOUT
 } from '../actions/types';
 
-const defaultState = {}
+const defaultState = {
+  username: "",
+  password: ""
+}
 
 const userReducer = (state = defaultState, action) => {
   switch (action.type) {

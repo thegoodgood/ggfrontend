@@ -5,7 +5,7 @@ import TweetsContainer from './TweetsContainer'
 import Header from './Header.js';
 import Footer from './Footer';
 import TweetBody from './Tweet';
-import Nav from "../Views/components/Nav";
+import Nav from "../views/components/Nav";
 
 class HomePage extends React.Component {
 
