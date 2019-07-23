@@ -13,12 +13,7 @@ import Header from "../components/Header";
 class HomePage extends React.Component {
 
   render() {
-<<<<<<< HEAD
 
-=======
-    
-    console.log(this.props);
->>>>>>> sundNight
     return (
       <div>
         <Header />
