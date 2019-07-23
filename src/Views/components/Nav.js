@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { userLoginAction, userLogoutAction } from "../../Redux/actions/userActions";
+import { userLoginAction, userLogoutAction } from "../../redux/actions/userActions";
 
 const Nav = props => {
   const handleLogout = () => {

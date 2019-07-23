@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {connect} from 'react-redux';
-import {fetchHashtags, saveAllHashtags} from '../../Redux/actions/tweetActions'
+import {fetchHashtags, saveAllHashtags} from '../../redux/actions/tweetActions'
 
 
 class HashtagsContainer extends React.Component {

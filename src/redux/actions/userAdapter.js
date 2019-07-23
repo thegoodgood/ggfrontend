@@ -3,7 +3,7 @@ import {
   createUserAction,
   deleteUserAction,
   loginUserAction,
-} from '../Redux/actions/UserActions';
+} from '../redux/actions/UserActions';
 
 import {BASE_URL} from '.../ApiConstants'
 
