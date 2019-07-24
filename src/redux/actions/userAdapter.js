@@ -1,22 +1,3 @@
-import {
-  getUserAction,
-//   userSignupAction,
-//   deleteUserAction,
-//   loginUserAction,
-} from './userActions';
-
-// const BASE_URL= 'http://localhost:3000'
-
-
-//-----------------------FETCH USERS
-
-export const getUserFromDB = () => dispatch => {
-  fetch(`'http://localhost:3000'/get_user`)
-    .then(r => r.json())
-    .then(user => {
-      dispatch(getUserAction(user));
-    });
-};
 
 //-------------------------------- NEW USER SIGNUP
 export const userSignupAction = (username, password) => dispatch => {
@@ -63,17 +44,18 @@ export const userLoginAction = (username, password) => dispatch => {
   })
   .catch(error => {
     dispatch({ type: 'LOGIN_REQUEST_FAILURE', error: error })
+    console.log("unsuccessful");
   })
 }
 
 
 //-------------------------------- CURRENT USER
-export const getCurrentUser = () => dispatch => {
+export const getCurrentUserAction = (user) => dispatch => {
   dispatch({type: "GET_PROFILE_REQUEST_START"})
 
   return fetch('http://localhost:3000/profile', {
     headers: {
-         "Authorization": `Bearer ${localStorage.token}`
+      "Authorization": `Bearer ${localStorage.token}`,
        }
      }).then((response) => {
        if (response.status === 401) {

@@ -18,8 +18,10 @@ import { userLoginAction } from '../../redux/actions/userAdapter'
    handleSubmit = (e) => {
      console.log(this.props);
      e.preventDefault()
+     console.log(this.props.login());
      this.props.login(this.state.username, this.state.password)
        .then(()=> {
+         console.log(this.props.username);
          this.props.history.push("/profile")
        })
    }
@@ -29,7 +31,7 @@ import { userLoginAction } from '../../redux/actions/userAdapter'
    }
 
    render() {
-     console.log(this.state);
+     console.log(this.state.username);
      return (
        <form onSubmit={this.handleSubmit}>
          <input type="text" value={this.state.username} onChange={this.handleChange} name="username" />
@@ -41,7 +43,7 @@ import { userLoginAction } from '../../redux/actions/userAdapter'
  }
 
  const mapStateToProps = state => {
-   // console.log(state);
+   console.log(state);
    return {
      user: state.currentUser
    }
