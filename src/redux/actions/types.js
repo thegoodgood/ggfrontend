@@ -14,6 +14,6 @@ export const SAVE_ALL_HASHTAGS = 'SAVE_ALL_HASHTAGS'
 //-------------DEALING WITH USERS' DATA
 export const CREATE_USER = 'CREATE_USER';
 export const DELETE_USER = 'DELETE_USER';
-export const GET_USER = 'GET_USER';
+export const GET_CURRENT_USER = 'GET_CURRENT_USER';
 export const USER_LOGIN = 'USER_LOGIN';
 export const USER_LOGOUT = 'USER_LOGOUT';

@@ -1,5 +1,5 @@
 
-export const getUserAction = user => ({
+export const getCurrentUserAction = user => ({
   type: "GET_USER",
   payload: user,
 });

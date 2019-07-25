@@ -1,4 +1,12 @@
 
+import {
+  CREATE_USER,
+  DELETE_USER,
+  GET_USER,
+  USER_LOGIN,
+  USER_LOGOUT
+} from "../actions/types";
+
 //-------------------------------- NEW USER SIGNUP
 export const userSignupAction = (username, password) => dispatch => {
   dispatch({ type: "SIGNUP_REQUEST_START" })
@@ -56,6 +64,7 @@ export const getCurrentUserAction = (user) => dispatch => {
   return fetch('http://localhost:3000/profile', {
     headers: {
       "Authorization": `Bearer ${localStorage.token}`,
+      "Accept": "application/json"
        }
      }).then((response) => {
        if (response.status === 401) {
@@ -82,4 +91,11 @@ export const getCurrentUserAction = (user) => dispatch => {
          })
        }
      })
+   }
+
+   //-------------------------------- USER LOGOUT
+
+   export const userLogoutAction = () => dispatch => {
+     localStorage.clear()
+     dispatch({ type: "USER_LOGOUT" })
    }

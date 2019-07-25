@@ -2,19 +2,19 @@ import {
   CREATE_USER,
   DELETE_USER,
   GET_USER,
+  GET_CURRENT_USER,
   USER_LOGIN,
   USER_LOGOUT
 } from "../actions/types";
 
 const defaultState = {
   id: null,
-  username: "",
-  currentUser: ""
+  username: ""
 };
 
 const userReducer = (state = defaultState, action) => {
   switch (action.type) {
-    case "GET_CURRENTUSER":
+    case GET_CURRENT_USER:
       return action.payload;
     case "DELETE_USER":
       return {};
@@ -27,12 +27,12 @@ const userReducer = (state = defaultState, action) => {
       return {};
     case "LOGIN_REQUEST_START":
       return { ...state, loading: true };
-    case "GET_PROFILE_REQUEST_SUCCESS":
-    return {...action.user, loading: false} // TODO: is a return necessary here? kevin didn't use it
     case "LOGIN_REQUEST_SUCCESS":
-      return { ...action.user, loading: false };
+      return { ...action.user,currentUser:action.user, loading: false };
     case "LOGIN_REQUEST_FAILURE":
       return { ...state, loading: false };
+    case "GET_PROFILE_REQUEST_SUCCESS":
+    return {...action.user,currentUser:action.user, loading: false} // TODO: is a return necessary here? kevin didn't use it
     default:
       return state;
   }

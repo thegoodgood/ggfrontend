@@ -1,19 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 import TweetBody from "../components/Tweet";
-import {fetchTweets, saveAllTweets} from '../../redux/actions/tweetActions'
+import {getTweetsAction} from '../../redux/actions/tweetAdapter'
 import {connect} from 'react-redux';
 
 class TweetsContainer extends React.Component {
 
   componentDidMount() {
-    fetch("http://localhost:3000/tweets")
-      .then(res => res.json())
-      .then(tweets => this.props.saveAllTweets(tweets))
+
+    this.props.getTweets()
       }
 
   render() {
-    // console.log(this.props.tweets);
+    console.log(this.props.tweets);
     let tweets = this.props.tweets.tweets.map(tweet => {
       return <TweetBody {...tweet} />;
     });
@@ -26,17 +25,17 @@ class TweetsContainer extends React.Component {
   }
 }
 
-  function mapStateToProps(state, tweets) {
+  const mapStateToProps= state=> {
+
     return {
+      // getTweets: getTweetsAction
       tweets: state.tweets
     };
   };
 
-  const mapDispatchToProps = (dispatch) => {
-    return {
-      fetchTweets: () => {dispatch(fetchTweets())}, //tweetAction name
-      saveAllTweets: (tweets) => {dispatch({type:"SAVE_ALL_TWEETS", payload: tweets})}
-      }
+  const mapDispatchToProps = {
+      getTweets: getTweetsAction
+
     }
 
 

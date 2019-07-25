@@ -15,7 +15,7 @@ export default function withAuth(WrappedComponent) {
           this.props.history.push("/login")
         })
       } catch (error) {
-        if (error.message == "Please log in") {
+        if (error.message === "Please log in") {
           this.props.history.push("/login")
         }
       }

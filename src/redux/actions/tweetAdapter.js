@@ -1,6 +1,5 @@
 import {
-  fetchTweets,
-  saveAllTweets
+  getTweetsStart, getTweetsSuccess, getTweetsFailure
 } from './tweetActions';
 
 import {BASE_URL} from '../../apiConstants'
@@ -8,13 +7,17 @@ import {BASE_URL} from '../../apiConstants'
 
 //-------------FETCH TWEETS
 
-  export const fetchTweets = () => {
-    fetch("http://localhost:3000/tweets")
+  export const getTweetsAction = () => dispatch => {
+    dispatch(getTweetsStart())
+      return fetch("http://localhost:3000/tweets")
       .then(res => res.json())
       .then(tweets => {
-    console.log("hi",tweets);
+        dispatch(getTweetsSuccess(tweets))
         })
-      })
+        .catch(error => {
+          dispatch(getTweetsFailure(error))
+        })
+
       }
 
 

@@ -10,13 +10,25 @@ import withAuth from '../../redux/hocs/withAuth'
 
 class ProfilePage extends React.Component {
 
+  // componentDidMount() {
+  //   if (localStorage.token) {
+  //     console.log("found a token");
+  //     console.log(this.props.currentUser);
+  //     console.log(this.props);
+  //   }
+  // }
+
+  handleClick = e=> {
+    let c = this.props.getCurrentUser(this.props.user)
+    console.log(c);
+    console.log(this.props.currentUser);
+  }
 
  render(){
-   console.log(this.props.username);
 
     return (
       <div>
-      <h1> {this.props.username ? "hello" : 'Getting your profile...'} </h1>
+      <h1> {this.props.currentUser ? `hello ${this.props.username}` : 'Getting your profile...'} </h1>
 
     </div>
   )
@@ -25,15 +37,25 @@ class ProfilePage extends React.Component {
 
 
 const mapStateToProps = state => {
-  console.log(state.user.username);
-  // TODO: why is it state.user.username here and not state.username or state.currentUser
   return {
-    username: state.user.username
+    user: state.user,
+    username: state.user.username,
+    currentUser: state.user.currentUser
   }
 }
 
-const mapDispatchToProps = {
-  currentUser: getCurrentUserAction
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getCurrentUser: getCurrentUserAction
+  }
 }
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     add_one: (num) => dispatch({type: "ADD_ONE", payload: num})
+//   }
+// }
+// {
+//   currentUser: getCurrentUserAction
+// }
 
-export default withAuth(connect(mapStateToProps, null)(withRouter(ProfilePage)))
+export default withAuth(connect(mapStateToProps, mapDispatchToProps)(withRouter(ProfilePage)))

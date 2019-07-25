@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
 
 import { connect } from 'react-redux'
 import { userLoginAction } from '../../redux/actions/userAdapter'
@@ -16,9 +16,7 @@ import { userLoginAction } from '../../redux/actions/userAdapter'
    }
 
    handleSubmit = (e) => {
-     console.log(this.props);
      e.preventDefault()
-     console.log(this.props.login());
      this.props.login(this.state.username, this.state.password)
        .then(()=> {
          console.log(this.props.username);
@@ -43,7 +41,7 @@ import { userLoginAction } from '../../redux/actions/userAdapter'
  }
 
  const mapStateToProps = state => {
-   console.log(state);
+
    return {
      user: state.currentUser
    }
