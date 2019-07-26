@@ -6,7 +6,7 @@ import TweetsContainer from "../containers/TweetsContainer";
 import HashtagsContainer from "../containers/HashtagsContainer";
 import ProfilePage from "./ProfilePage";
 import TopicsContainer from "../containers/TweetsContainer";
-import TweetTopics from "../components/TweetTopics";
+import TopicsNav from "../components/TopicsNav";
 
 
 
@@ -17,8 +17,7 @@ class HomePage extends React.Component {
     return (
       <div>
 
-
-        <TweetTopics />
+        <TopicsNav />
         <TweetsContainer />
         <HashtagsContainer />
       </div>

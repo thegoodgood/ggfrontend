@@ -1,45 +1,37 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {connect} from 'react-redux';
-import {fetchHashtags, saveAllHashtags} from '../../redux/actions/tweetActions'
+import {getHashtagsAction} from '../../redux/actions/hashtagAdapter'
 
 
 class HashtagsContainer extends React.Component {
 
   componentDidMount() {
-    fetch("http://localhost:3000/hashtags")
-      .then(res => res.json())
-      .then(hashtags => this.props.saveAllHashtags(hashtags))
+    this.props.getHashtags()
       }
 
 
   render() {
 
-    let hashtags = this.props.hashtags.hashtags.map(hashtag=> (
-      <div className="hashTag">  {hashtag.keyword} </div>
-      ))
-
     return (
-      <div className = "hashtagContainer">
+      <div className = "hashtagsContainer">
       <h2>Trending Topics</h2>
-        {hashtags}
+        {this.props.hashtags.map(hashtag => <p key={hashtag.id} className= "keyword">  {hashtag.keyword}</p>)}
        </div>
     )
   }
 
 }
 
-  function mapStateToProps(state, hashtags) {
+
+  const mapStateToProps = state => {
     return {
       hashtags: state.hashtags
     }
   }
 
-  const mapDispatchToProps = dispatch => {
-    return {
-      fetchHashtags: () => {dispatch(fetchHashtags())},
-      saveAllHashtags: (hashtags) => { dispatch({ type: "SAVE_ALL_HASHTAGS", payload: hashtags})}
-    }
+  const mapDispatchToProps = {
+    getHashtags: getHashtagsAction
   }
 
 
@@ -49,7 +41,3 @@ class HashtagsContainer extends React.Component {
     mapStateToProps,
     mapDispatchToProps
   )(HashtagsContainer);
-
-// let tweets = this.props.tweets.tweets.map(tweet => {
-//   return <TweetBody {...tweet} />;
-// });

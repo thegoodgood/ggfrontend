@@ -24,18 +24,3 @@ export const getTweetsSuccess = (tweets) => (
 export const getTweetsFailure = (error) => {
   return { type: "GET_TWEETS_FAILURE", error: error }
 }
-
-
-
-//--------------------------------------FOR HASHTAGS
-
-
-export const fetchHashtags = hashtags => ({
-  type: "FETCH_HASHTAGS",
-  payload: hashtags
-});
-
-export const saveAllHashtags = hashtags => ({
-  type: "SAVE_ALL_HASHTAGS",
-  payload: hashtags
-});

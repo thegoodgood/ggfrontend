@@ -8,6 +8,7 @@ var ReactDOM = require('react-dom');
 // Don’t emit actions, but may take callbacks that do via props
 
   const TweetBox = (props) => {
+    console.log(props);
     return(
       <div className="tweet-body">
         {props.children}

@@ -4,7 +4,7 @@ import TweetBody from "../components/Tweet";
 import { fetchTweets } from "../../redux/actions/tweetActions";
 import { connect } from "react-redux";
 
-class TweetsTopics extends React.Component {
+class TopicsNav extends React.Component {
   componentDidMount() {}
 
   render() {
@@ -31,7 +31,7 @@ class TweetsTopics extends React.Component {
 //     }
 //   }
 
-export default TweetsTopics;
+export default TopicsNav;
 // export default connect(
 //   mapStateToProps,
 //   mapDispatchToProps

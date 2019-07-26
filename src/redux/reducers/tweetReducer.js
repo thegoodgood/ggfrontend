@@ -1,26 +1,11 @@
-import { FETCH_TWEETS } from "../actions/types";
+const defaultState = []
 
-const defaultState = {
-  tweets: []
-}
+export default (state = defaultState, action) => {
 
-//-------------const reducer = (state, action) => {}--------
-const tweetReducer = (state= defaultState, action) => {
   switch (action.type) {
-    case FETCH_TWEETS:
-      return {
-        ...state,
-        tweets: action.payload
-      };
-
-      case "SAVE_ALL_TWEETS":
-      return {
-        ...state, tweets: action.payload
-      }
-
+    case 'GET_TWEETS_SUCCESS':
+      return action.tweets
     default:
-      return state;
+      return state
   }
 }
-
-export default tweetReducer

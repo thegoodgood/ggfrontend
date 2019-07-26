@@ -7,26 +7,20 @@ import {connect} from 'react-redux';
 class TweetsContainer extends React.Component {
 
   componentDidMount() {
-
     this.props.getTweets()
       }
 
   render() {
-    console.log(this.props.tweets);
-    let tweets = this.props.tweets.tweets.map(tweet => {
-      return <TweetBody {...tweet} />;
-    });
-
     return (
-      <div className="TweetsContainer">
-        {tweets}
-       </div>
+       <div className="TweetsContainer">
+  {this.props.tweets.map(tweet => <TweetBody key={tweet.id} {...tweet}/>)}
+</div>
     )
   }
 }
 
   const mapStateToProps= state=> {
-
+console.log(state.tweets);
     return {
       // getTweets: getTweetsAction
       tweets: state.tweets
@@ -35,7 +29,6 @@ class TweetsContainer extends React.Component {
 
   const mapDispatchToProps = {
       getTweets: getTweetsAction
-
     }
 
 
@@ -43,7 +36,3 @@ class TweetsContainer extends React.Component {
     mapStateToProps,
     mapDispatchToProps
   )(TweetsContainer);
-
-// let tweets = this.props.tweets.tweets.map(tweet => {
-//   return <TweetBody {...tweet} />;
-// });
