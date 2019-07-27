@@ -6,38 +6,31 @@ a {
   float: right;
 }
 
-.topics {
-  margin: 5px;
-  font-size: 30px;
-  text-align: left;
+.topicsNav {
   border-bottom: 3px solid black;
   width: 750px;
   margin-top: 100px;
   margin-bottom: 20px;
   margin-left: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 40px;
+  font-size: 30px;
+  padding: 5px;
+
 }
 
-.topics span {
+.topicsNav button {
   margin: 5px;
-
-  /* border: 3px solid white; */
   padding: 20px;
+  background-color: white;
+  border: 1px solid black;
 }
 
-div.topics {
-  max-width: 750px;
-  display: flex;
-}
-.hashTag:hover {
-  font-size: 1.1em;
-  font-weight: bold;
-     color: red;
-}
+
+
 .header {
   height: auto;
   font-weight: bold;
-  height: 25px;
+  height: 40px;
   width: auto;
      background-color: orange;
      -webkit-animation: random 45s infinite;
@@ -80,5 +73,5 @@ div.tweet-body {
   background-color: white;
   margin:5px 0 10px 10px;
   border: 1px solid grey;
-  width: 700px;
+  width: 750px;
 }

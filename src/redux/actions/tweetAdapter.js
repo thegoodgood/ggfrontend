@@ -1,15 +1,21 @@
 import {
-  getTweetsStart, getTweetsSuccess, getTweetsFailure
+  getTweetsStart, getTopicTweetsStart, getTweetsSuccess, getTweetsFailure
 } from './tweetActions';
 
+import {
+getTopic,  getTopicStart, getTopicSuccess, getTopicFailure
+} from './topicActions';
+
+
 import {BASE_URL} from '../../apiConstants'
+const tweets_url = "http://localhost:3000/tweets"
 
 
 //-------------FETCH TWEETS
 
   export const getTweetsAction = () => dispatch => {
     dispatch(getTweetsStart())
-      return fetch("http://localhost:3000/tweets")
+      return fetch(tweets_url)
       .then(res => res.json())
       .then(tweets => {
         dispatch(getTweetsSuccess(tweets))
@@ -17,13 +23,38 @@ import {BASE_URL} from '../../apiConstants'
         .catch(error => {
           dispatch(getTweetsFailure(error))
         })
-
       }
 
 
-//fetch tweets is the
+//-------------FETCH SOCIAL COMMENTARY TWEETS
+      export const getTopicTweetsAction = (topic) => dispatch => {
+        dispatch(getTopicTweetsStart(topic))
+          return fetch(tweets_url`/${topic}`)
+          .then(res => res.json())
+          .then(tweets => {
+            dispatch(getTweetsSuccess(tweets))
+            })
+            .catch(error => {
+              dispatch(getTweetsFailure(error))
+            })
+          }
 
-export const fetchUserFromDB = id => {
-  return fetch(`${BASE_URL}/users/${id}`)
-  .then(r => r.json());
-};
+//-------------FETCH NEWS
+      export const getNewsAction = () => dispatch => {
+        dispatch(getTopicTweetsStart())
+          return fetch(tweets_url`/news`)
+          .then(res => res.json())
+          .then(tweets => {
+            dispatch(getTweetsSuccess(tweets))
+            })
+            .catch(error => {
+              dispatch(getTweetsFailure(error))
+            })
+          }
+
+
+
+//-----------------------UPDATE TOPIC IN THE STORE
+export const getTopicAction = (topic) => dispatch => {
+    dispatch(getTopic(topic))
+    }

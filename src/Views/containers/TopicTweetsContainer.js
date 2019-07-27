@@ -1,9 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import TweetBody from "../components/Tweet";
-import {getTweetsAction,  getTopicTweetsAction, getNewsAction} from '../../redux/actions/tweetAdapter'
-// import TopicTweetsContainer from '../containers/TopicTweetsContainer'
-
+import {getTweetsAction, getTopicTweetsAction, getNewsAction} from '../../redux/actions/tweetAdapter'
 import {connect} from 'react-redux';
 
 class TweetsContainer extends React.Component {
@@ -13,15 +11,15 @@ class TweetsContainer extends React.Component {
       }
 
   render() {
-    if (this.props.topic === "Social Commentary"){
-      this.props.getTopic(this.props.topic)
-    } else if (this.props.topic === "On the Daily") {
-      this.props.getTopic(this.props.topic)
-    }else if (this.props.topic === "News") {
-      this.props.getNews()
-}
+//     if (this.props.topic === "Social Commentary"){
+//       this.props.getTopic(Social)
+//     } elseif (this.props.topic === "On the Daily") {
+//       this.props.getTopic(OtD)
+//     }elseif (this.props.topic === "News") {
+//       this.props.getNews()
+// }
     return (
-       <div className="TweetsContainer" >
+       <div className="TweetsContainer">
   {this.props.tweets.map(tweet => <TweetBody key={tweet.id} {...tweet}/>)}
 </div>
     )
@@ -31,14 +29,15 @@ class TweetsContainer extends React.Component {
   const mapStateToProps= state=> {
 
     return {
+      // getTweets: getTweetsAction
       tweets: state.tweets
     };
   };
 
   const mapDispatchToProps = {
-    getTweets: getTweetsAction,
-    getTopic: getTopicTweetsAction,
-    getNews: getNewsAction
+      getTweets: getTweetsAction,
+      getTopic: getTopicTweetsAction,
+      getNews: getNewsAction
     }
 
 

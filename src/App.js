@@ -1,6 +1,7 @@
 import "./App.css";
 import "./views/containers/containers.css";
 import "./views/components/components.css";
+import "./views/pages/pages.css";
 
 import React from "react";
 

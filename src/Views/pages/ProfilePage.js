@@ -21,7 +21,7 @@ class ProfilePage extends React.Component {
   handleClick = e=> {
     let c = this.props.getCurrentUser(this.props.user)
     console.log(c);
-    console.log(this.props.currentUser);
+    // console.log(this.props.currentUser);
   }
 
  render(){

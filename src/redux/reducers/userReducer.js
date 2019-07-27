@@ -14,17 +14,6 @@ const defaultState = {
 
 const userReducer = (state = defaultState, action) => {
   switch (action.type) {
-    // case GET_CURRENT_USER:
-    //   return action.payload;
-    // case "DELETE_USER":
-    //   return {};
-    // case "CREATE_USER":
-    //   return action.payload;
-    // case "USER_LOGIN":
-    //   return action.payload;
-    // case "USER_LOGOUT":
-    //   localStorage.clear();
-    //   return {};
     case "LOGIN_REQUEST_START":
       return { ...state, loading: true };
     case "LOGIN_REQUEST_SUCCESS":

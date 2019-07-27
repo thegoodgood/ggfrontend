@@ -14,9 +14,13 @@
 
 
 const GET_TWEETS_START = "GET_TWEETS_START"
+const GET_TOPIC_TWEETS_START = "GET_TOPIC_TWEETS_START"
 
 export const getTweetsStart = () => (
   { type: GET_TWEETS_START }
+)
+export const getTopicTweetsStart = (topic) => (
+  { type: GET_TOPIC_TWEETS_START }
 )
 export const getTweetsSuccess = (tweets) => (
   { type: "GET_TWEETS_SUCCESS", tweets: tweets }
