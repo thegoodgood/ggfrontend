@@ -28,8 +28,9 @@ const tweets_url = "http://localhost:3000/tweets"
 
 //-------------FETCH SOCIAL COMMENTARY TWEETS
       export const getTopicTweetsAction = (topic) => dispatch => {
-        dispatch(getTopicTweetsStart(topic))
-          return fetch(tweets_url`/${topic}`)
+        let new_topic = topic.toLowerCase().split(" ").join("")
+        dispatch(getTopicTweetsStart(new_topic))
+          return fetch(`http://localhost:3000/${new_topic}`)
           .then(res => res.json())
           .then(tweets => {
             dispatch(getTweetsSuccess(tweets))
