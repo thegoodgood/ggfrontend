@@ -1,29 +1,51 @@
 import React from "react";
 import PropTypes from "prop-types";
-import TweetBody from "../components/Tweet";
+import TweetBody from "../components/Tweet"
+import Popup from "../components/Popup";
 import {getTweetsAction,  getTopicTweetsAction, getNewsAction} from '../../redux/actions/tweetAdapter'
-// import TopicTweetsContainer from '../containers/TopicTweetsContainer'
+
 
 import {connect} from 'react-redux';
 
 class TweetsContainer extends React.Component {
+
+  state = {
+    currentTweet: {},
+    show: false
+  }
+
+  onToggle= (event) => {
+    console.log(this.state.show);
+    this.setState({
+      ...this.state, show: !this.state.show })
+      console.log(this.state.currentTweet);
+ }
+
+ setTweet = (tweet) => {
+this.setState({...this.state, show: !this.state.show})
+   this.setState({currentTweet: tweet})
+
+   console.log(tweet);
+ }
 
   componentDidMount() {
     this.props.getTweets()
       }
 
   render() {
-    if (this.props.topic === "Social Commentary"){
-      this.props.getTopic(this.props.topic)
-    } else if (this.props.topic === "On the Daily") {
-      this.props.getTopic(this.props.topic)
-    }else if (this.props.topic === "News") {
-      this.props.getNews()
-}
+console.log(this.state.currentTweet);
     return (
-       <div className="TweetsContainer" >
-  {this.props.tweets.map(tweet => <TweetBody key={tweet.id} {...tweet}/>)}
-</div>
+
+       <div className="TweetsContainer" id="twitter-wjs">
+       { this.state.show ?
+         <Popup {...this.state}currentTweet={this.state.currentTweet}   onToggle={this.onToggle}/>
+         :
+
+         this.props.tweets.map(tweet =>  <TweetBody setCurrentTweet={this.setTweet}
+           key={tweet.id} currentTweet={this.state.currentTweet} {...tweet} />
+         )
+       }
+         </div>
     )
   }
 }

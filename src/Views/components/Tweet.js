@@ -1,5 +1,6 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
+
+import React from 'react';
+import Popup from "../components/Popup";
 
 //Presentation components
 // Are concerned with how things look
@@ -7,69 +8,35 @@ var ReactDOM = require('react-dom');
 // Do not manage state at all
 // Don’t emit actions, but may take callbacks that do via props
 
-  const TweetBox = (props) => {
-    
-    return(
-      <div className="tweet-body">
-        {props.children}
-      </div>
-    )
+class TweetBody extends React.Component {
+
+
+
+  handleClick = event => {
+      this.props.setCurrentTweet(this.props)
+
   }
+  render() {
 
-  const Image = (props) => {
+    return (
 
-    return(
-      <img src={props.image} alt={"Profile pic"} className="picture">
-      </img>
-    )
-  }
-
-  const Handle = (props) => {
-    return(
-      <div className="handle">
-        @{props.handle}
-      </div>
-    )
-  }
-
-  const Name = (props) => {
-    return(
-      <div className="name">
-        {props.name}
-      </div>
-    )
-  }
-
-  const Content = (props) => {
-    return(
-      <div className="tweet">
-        {props.content}
-      </div>
-    )
-  }
-
-  const TweetBody = (props) => {
-
-
-    return(
-      <TweetBox>
+      <div className="tweet-body" onClick={this.handleClick}>
         <div className="outer-body">
-          <Image image={props.profile_img_url}/>
-          <div className="body">
+          <img src={this.props.profile_img_url} />
+          <div className="body" url={this.props.url}>
             <div className="inner-body">
+            <div className="name"> {this.props.user_name}</div>
 
-              <Name name={props.user_name}/>
-              <Handle handle={props.handle}/>
+              <div className="handle">@{this.props.handle}</div>
+              </div>
+              <div className="tweet content">{this.props.content}</div>
 
-            </div>
-            <div className="content">
-            <Content content={props.content}/>
-            </div>
-
-          </div>
+              <div>{this.props.entities} </div>
         </div>
-      </TweetBox>
-    )
+       </div>
+       </div>
+    );
   }
+}
 
-export default TweetBody
+export default TweetBody;

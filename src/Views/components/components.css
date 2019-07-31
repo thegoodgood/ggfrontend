@@ -1,3 +1,30 @@
+.main-body {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  min-height: 80rem;
+  padding: 50px;
+
+}
+.inner-body {
+  display: grid;
+  font-size: 16px;
+  /* flex-direction: grid; */
+  background-color: white;
+  line-height: 1x;
+  /* padding-left: 10px; */
+  margin:10px 0 10px 0px;
+  width: 100%;
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.body {
+  /* max-width: 100%; */
+  float: left;
+  display: inline;
+}
+
 a {
   margin: 5px;
   font-size: 15px;
@@ -64,14 +91,92 @@ nav a {
   font-size: 18px;
   margin: 10px;
 }
-div.tweet-body {
+img {
+  margin-left: 10px;
+  margin-top: 18px;
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+  position: relative;
+  float: left;
+}
+.tweet-body {
   /* display: flex; */
   float: left;
   flex-direction: column;
   vertical-align: middle;
   height: auto;
   background-color: white;
-  margin:5px 0 10px 10px;
+  margin:5px 0 10px 0px;
+  padding: 2px;
   border: 1px solid grey;
-  width: 750px;
+  width: 100%;
+}
+
+.content {
+  display: inline;
+  width: 100%;
+  height: fit-content;
+  margin-left: 80px;
+  margin-top: -20px
+}
+.name {
+  font-weight: bold;
+  padding-top: 20px;
+    margin-left: 20px;
+  /* margin-top: -50px; */
+  width: fit-content;
+  /* height: 20px; */
+  font-style: italic;
+  display: flex;
+}
+
+.handle {
+  padding-top: 20px;
+  margin-left: 20px;
+  /* margin-top: -50px; */
+  width: fit-content;
+  /* height: 20px; */
+  font-style: italic;
+  display: flex;
+  display: float-right;
+}
+
+.tweet {
+  /* margin-top: 7px; */
+  width: 640px;
+  display: grid;
+  margin:10px 0px 10px 0;
+  font-size: 16px;
+  /* flex-direction: grid; */
+  background-color: white;
+  line-height: 1x;
+  padding-left: 10px;
+  overflow-wrap: normal;
+
+  /* width: 700px;
+  display: inline-flex;
+  vertical-align: middle; */
+
+  .popup {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(0,0,0, 0.5);
+}
+.popup\_inner {
+  position: absolute;
+  left: 25%;
+  right: 25%;
+  top: 25%;
+  bottom: 25%;
+  margin: auto;
+  border-radius: 20px;
+  background: white;
+}
 }

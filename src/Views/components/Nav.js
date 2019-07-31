@@ -10,7 +10,7 @@ import {
 class Nav extends Component {
   componentDidMount() {
     this.props.setCurrentUser();
-    console.log(this.props);
+    
   }
 
   onLogout = () => {

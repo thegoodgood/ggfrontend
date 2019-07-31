@@ -11,13 +11,7 @@ class TweetsContainer extends React.Component {
       }
 
   render() {
-//     if (this.props.topic === "Social Commentary"){
-//       this.props.getTopic(Social)
-//     } elseif (this.props.topic === "On the Daily") {
-//       this.props.getTopic(OtD)
-//     }elseif (this.props.topic === "News") {
-//       this.props.getNews()
-// }
+
     return (
        <div className="TweetsContainer">
   {this.props.tweets.map(tweet => <TweetBody key={tweet.id} {...tweet}/>)}
