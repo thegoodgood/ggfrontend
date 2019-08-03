@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {connect} from 'react-redux';
-import {getHashtagsAction} from '../../redux/actions/hashtagAdapter'
+import {getHashtagsAction, getHashtagSearchAction} from '../../redux/actions/hashtagAdapter'
 
 
 class HashtagsContainer extends React.Component {
@@ -10,13 +10,16 @@ class HashtagsContainer extends React.Component {
     this.props.getHashtags()
       }
 
+      handleClick = event => {
+        this.props.getHashtagSearch(event.target.innerText)
+      }
 
   render() {
 
     return (
       <div className = "hashtagsContainer">
       <h2>Trending Topics</h2>
-        {this.props.hashtags.map(hashtag => <p key={hashtag.id} className= "keyword">  {hashtag.keyword}</p>)}
+        {this.props.hashtags.map(hashtag => <p onClick={this.handleClick} key={hashtag.id} className= "keyword">{hashtag.keyword}</p>)}
        </div>
     )
   }
@@ -31,8 +34,11 @@ class HashtagsContainer extends React.Component {
   }
 
   const mapDispatchToProps = {
-    getHashtags: getHashtagsAction
+    getHashtags: getHashtagsAction,
+    getHashtagSearch: getHashtagSearchAction
+
   }
+
 
 
 

@@ -5,33 +5,16 @@ import TweetContainer from "../containers/TweetsContainer"
 import {getTweetsAction,  getTopicTweetsAction, getNewsAction} from '../../redux/actions/tweetAdapter'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import TweetEmbed from 'react-tweet-embed'
-import {connect} from 'react-redux';
-import { TwitterTimelineEmbed, TwitterShareButton, TwitterFollowButton, TwitterHashtagButton,TwitterTweetEmbed} from 'react-twitter-embed'
-import EmbedContainer from 'react-oembed-container'
 
-import { Tweet, Timeline } from 'react-twitter-widgets'
+
+import {connect} from 'react-redux';
+
+
+
+
 
 
 class Popup extends React.Component {
-
-  state = {
-    modal: true
-}
-
-// componentLoad() {
-//   // const twttr = window.twttr
-//   // twttr.widgets.load()
-//   // twttr.onload =() => {
-//   //   console.log("hello");
-//   //   twttr.widgets.load()
-// }
-// }
-  // componentDidMount() {
-  //   this.props.getTweets()
-  //     }
-  // onClose = event => {
-  //   this.props.onClose && this.props.onClose(event)
-
 
   onToggle = event => {
 
@@ -45,22 +28,14 @@ class Popup extends React.Component {
 
 
 
-    console.log(tweet.content);
+    console.log(tweet);
     return (
         <div id = "tweet" >
 
-           <Modal isOpen={this.state.modal} >
-           <Timeline
-               dataSource={{
-                 sourceType: 'profile',
-                 screenName: 'twitterdev'
-               }}
-               options={{
-                 username: 'TwitterDev',
-                 height: '400'
-               }}
-               onLoad={() => console.log('Timeline is loaded!')}
-             />
+           <Modal isOpen={true} >
+
+          <TweetEmbed id={tweet.tweet_id} placeholder={'loading'} />
+
            <button onClick={event=> {this.onToggle(event)}}>
             close
             </button>

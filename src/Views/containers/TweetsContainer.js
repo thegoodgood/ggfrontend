@@ -33,17 +33,19 @@ this.setState({...this.state, show: !this.state.show})
       }
 
   render() {
-console.log(this.state.currentTweet);
+
     return (
 
-       <div className="TweetsContainer" id="twitter-wjs">
-       { this.state.show ?
-         <Popup {...this.state}currentTweet={this.state.currentTweet}   onToggle={this.onToggle}/>
-         :
-
-         this.props.tweets.map(tweet =>  <TweetBody setCurrentTweet={this.setTweet}
+       <div className="TweetsContainer">
+         {this.props.tweets.map(tweet =>  <TweetBody setCurrentTweet={this.setTweet}
            key={tweet.id} currentTweet={this.state.currentTweet} {...tweet} />
-         )
+         )}
+       { this.state.show ?
+           <Popup
+           {...this.state} currentTweet={this.state.currentTweet}   onToggle={this.onToggle}/>
+         :
+         null
+
        }
          </div>
     )
