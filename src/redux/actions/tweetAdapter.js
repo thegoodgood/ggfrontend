@@ -63,11 +63,11 @@ const tweets_url = "http://localhost:3000/tweets"
     .then(res => res.json())
     .then(data => {
       return data
-      console.log(data)
+
     })
     .catch(error => {
       return error
-      console.log(error)})
+      })
   }
 
 //-----------------------UPDATE TOPIC IN THE STORE
