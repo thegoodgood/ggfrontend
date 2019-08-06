@@ -187,14 +187,47 @@ div.votes {
 
 .upvote, .downvote {
   border: none;
+  border-radius: 30%;
   float: right;
-  padding: none;
+  /* padding: none; */
   font-size: 26px;
-  background-color: white;
-  display: flex;
+  /* background-color: white; */
+  /* display: flex; */
+  background-color: rgba(255,18,18, 0.5);
+  /* padding-top: 5px;
+  padding-bottom: 5px; */
+  /* padding: 5px; */
+  width: 45px;
+  height: 45px;
 }
 
 .upvote:hover, .downvote:hover {
   font-size: 34px;
   margin: 1px;
+}
+div.nav {
+  float: right;
+  margin-top: 5px;
+}
+
+.nav a {
+  padding: 5px;
+}
+
+.logout {
+  /* background-color: white; */
+  border: red solid 2px;
+  padding: 5px;
+  display: flex;
+}
+
+.login {
+  /* background-color: white; */
+  border: green solid 2px;
+  padding: 5px;
+  display: flex;
+}
+
+.login:hover, .logout:hover {
+  border: orange solid 2px;
 }

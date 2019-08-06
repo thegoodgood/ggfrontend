@@ -1,3 +1,4 @@
+
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
@@ -10,30 +11,32 @@ import {
 class Nav extends Component {
   componentDidMount() {
     this.props.setCurrentUser();
-    
   }
 
   onLogout = () => {
+    localStorage.clear()
     this.props.logout();
-    this.props.history.push("/login");
+    const { history } = this.props;
+    if(history) history.push('/home');
   };
 
   render() {
     return (
-      <div>
-        {this.props.user.id ? (
+      <div className="nav">
+        {!!localStorage.token ? (
           //---------------WHAT A LOGGED IN USER SEES
           <div>
+          <Link to="" className="logout" onClick={this.onLogout}>Logout</Link>
             <Link to="/">Home</Link>
             <Link to="/profile">Profile</Link>
-            <button onClick={this.onLogout}>Logout</button>
+
           </div>
         ) : (
           //---------------WHAT A GUEST SEES
-          <div>
+          <div className="nav">
             <Link to="/">Home</Link>
             <Link to="/signup">Sign Up</Link>
-            <Link to="/login">Log in</Link>
+            <Link to="/login" className="login" >Log in</Link>
           </div>
         )}
       </div>

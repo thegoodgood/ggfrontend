@@ -5,23 +5,47 @@ import {withRouter } from 'react-router-dom'
 import {getCurrentUserAction } from "../../redux/actions/userAdapter.js"
 import withAuth from '../../redux/hocs/withAuth'
 import Tweet from '../components/Tweet'
+import Popup from "../components/Popup"
+import UpvotedTweetsContainer from '../containers/UpvotedTweetsContainer'
+
+import HashtagsContainer from "../containers/HashtagsContainer";
+import TopicsContainer from "../containers/TweetsContainer";
+import TopicsNav from "../components/TopicsNav";
+
+
 
 class ProfilePage extends React.Component {
 
   handleClick = e=> {
-    let c = this.props.getCurrentUser(this.props.user)
-    console.log(c);
-
+    this.props.getCurrentUser(this.props.user)
   }
 
  render(){
    return (
-     <div>
-      <h1> {this.props.currentUser ? `hello ${this.props.user.username}` : 'Getting your profile...'} </h1>
-     </div>
-   )
- }
+     <div className= "profilePage">
+
+      {this.props.currentUser ?
+        (
+        <div><h1>Hello, {this.props.user.username}</h1>
+
+        <TopicsNav />
+        <UpvotedTweetsContainer  />
+        <HashtagsContainer />
+        </div>
+)
+      :
+
+(
+
+      <h1> Getting your profile... </h1>
+
+   )}
+   </div>
+
+ )}
+
 }
+
 
 
 const mapStateToProps = state => {
@@ -34,7 +58,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getCurrentUser: getCurrentUserAction
+    getCurrentUser: getCurrentUserAction,
+
   }
 }
 

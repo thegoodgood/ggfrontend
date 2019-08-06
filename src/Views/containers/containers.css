@@ -33,6 +33,15 @@ html {
   overflow-y: scroll;
     overflow-x: hidden;
 }
+
+.UpvotedTweetsContainer {
+  margin: 0px 5px 0px 5px;
+  float: left;
+  width: 70%;
+  height: 550px;
+  overflow-y: scroll;
+    overflow-x: hidden;
+}
 .visible-scrollbar, .invisible-scrollbar, .mostly-customized-scrollbar {
   display: block;
   width: 10em;

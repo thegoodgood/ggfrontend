@@ -7,7 +7,7 @@ import {getTweetsAction,  getTopicTweetsAction, getNewsAction} from '../../redux
 
 import {connect} from 'react-redux';
 
-class TweetsContainer extends React.Component {
+class UpvotedTweetsContainer extends React.Component {
 
   state = {
     currentTweet: {},
@@ -15,10 +15,10 @@ class TweetsContainer extends React.Component {
   }
 
   onToggle= (event) => {
-    
+    // console.log(this.state.show);
     this.setState({
       ...this.state, show: !this.state.show })
-      console.log(this.state.currentTweet);
+    //   console.log(this.state.currentTweet);
  }
 
  setTweet = (tweet) => {
@@ -29,15 +29,15 @@ this.setState({...this.state, show: !this.state.show})
  }
 
   componentDidMount() {
-    this.props.getTweets()
+    // this.props.getTweets()
       }
 
   render() {
-console.log(this.props);
+console.log(this.props.upvotedTweets);
     return (
 
-       <div className="TweetsContainer">
-         {this.props.tweets.map(tweet =>  <Tweet setCurrentTweet={this.setTweet}
+       <div className="UpvotedTweetsContainer">
+         {this.props.upvotedTweets.map(tweet =>  <Tweet setCurrentTweet={this.setTweet}
            key={tweet.id} currentTweet={this.state.currentTweet} {...tweet} />
          )}
        { this.state.show ?
@@ -54,7 +54,8 @@ console.log(this.props);
 
   const mapStateToProps= state=> {
     return {
-      tweets: state.tweets
+      tweets: state.tweets,
+      upvotedTweets: state.user.upvoted_tweets
     };
   };
 
@@ -68,4 +69,4 @@ console.log(this.props);
   export default connect(
     mapStateToProps,
     mapDispatchToProps
-  )(TweetsContainer);
+  )(UpvotedTweetsContainer);

@@ -1,7 +1,7 @@
 import React from "react";
 import Popup from "../components/Popup";
-import { connect } from 'react-redux'
-import { upvoteTweetAction } from '../../redux/actions/tweetAdapter'
+import { connect } from "react-redux";
+import { upvoteTweetAction, downvoteTweetAction } from "../../redux/actions/tweetAdapter";
 
 //Presentation components
 // Are concerned with how things look
@@ -11,39 +11,59 @@ import { upvoteTweetAction } from '../../redux/actions/tweetAdapter'
 
 class Tweet extends React.Component {
   handleClick = event => {
-    this.props.setCurrentTweet(this.props);
+    if (this.props.setCurrentTweet) {
+      this.props.setCurrentTweet(this.props);
+    }
   };
+
   render() {
     return (
-      <div className="tweet-body" onClick={this.handleClick}>
+      <div className="tweet-body" >
 
-      <div className="votes">
-      <button className="upvote" onClick={()=> {this.props.onUpvote(this.props.id)}}>👍🏾</button>
-      <button className="downvote" onClick={()=> {this.props.onUpvote(this.props.id)}}>👎🏾</button>
+        <div className="votes">
+        { !this.props.upvotes ?
+          <button
+            className="upvote"
+            onClick={() => {
+              this.props.upvoteTweet(this.props.id)
+            }} style={{background:"darkseagreen"}}
+          >👍🏾</button>
+          :
+          <button
+            className="downvote"
+            onClick={() => {
+              this.props.downvoteTweet(this.props.id)
+            }}
+          >👎🏾</button>
+        }
+        </div>
 
-      </div>
-<div>
-        <div className="outer-body">
-          <img src={this.props.profile_img_url} />
-          <div className="body" url={this.props.url}>
-            <div className="inner-body">
-              <div className="name"> {this.props.user_name}</div>
+        <div onClick={this.handleClick}>
+          <div className="outer-body">
+            <img src={this.props.profile_img_url} />
+            <div className="body" url={this.props.url}>
+              <div className="inner-body">
+                <div className="name"> {this.props.user_name}</div>
 
-              <div className="handle">@{this.props.handle}</div>
+                <div className="handle">@{this.props.handle}</div>
+              </div>
+              <div className="tweet content">{this.props.content}</div>
+
+              <div>{this.props.entities} </div>
             </div>
-            <div className="tweet content">{this.props.content}</div>
-
-            <div>{this.props.entities} </div>
           </div>
         </div>
-</div>
       </div>
     );
   }
 }
 
 const mapDispatchToProps = {
-  onUpvote: upvoteTweetAction
-}
+  upvoteTweet: upvoteTweetAction,
+  downvoteTweet: downvoteTweetAction
+};
 
-export default connect(null, mapDispatchToProps)(Tweet);
+export default connect(
+  null,
+  mapDispatchToProps
+)(Tweet);

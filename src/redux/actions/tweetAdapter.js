@@ -56,7 +56,6 @@ const tweets_url = "http://localhost:3000/tweets"
 //-------------FETCH EMBEDDED TWEET
 
   export const embedTweetAction = () => dispatch => {
-    console.log("hiii");
     fetch("https://publish.twitter.com/oembed?url=https%3A%2F%2Ftwitter.com%2FInterior%2Fstatus%2F507185938620219395'", {
        mode: 'no-cors',
        "X-Frame-Options": "allow-from"
@@ -113,5 +112,23 @@ export const upvoteTweetAction = (id) => dispatch => {
   })
   .catch(error => {
     dispatch({ type: 'GET_CURRENT_TWEET_FAILURE', error: error })
+  })
+}
+
+export const downvoteTweetAction = (id) => dispatch => {
+  dispatch({ type: "GET_CURRENT_TWEET_START" })
+
+  return fetch(`http://localhost:3000/tweets/${id}/downvote`, {
+    method: 'POST',
+    headers: {
+      "Authorization": `Bearer ${localStorage.token}`
+    }
+  })
+  .then(res => res.json())
+  .then(tweet => {
+    console.log(tweet);
+    console.log('dowvote:', tweet)
+    dispatch({ type: 'GET_CURRENT_TWEET_SUCCESS', tweet: tweet })
+    dispatch({ type: 'REMOVE_FROM_UPVOTED_TWEETS', tweet: tweet })
   })
 }

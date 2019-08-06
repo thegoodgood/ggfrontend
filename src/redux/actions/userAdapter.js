@@ -4,7 +4,7 @@ import {
   DELETE_USER,
   GET_USER,
   USER_LOGIN,
-  USER_LOGOUT
+  // USER_LOGOUT
 } from "../actions/types";
 
 //-------------------------------- NEW USER SIGNUP
@@ -97,5 +97,6 @@ export const getCurrentUserAction = (user) => dispatch => {
 
    export const userLogoutAction = () => dispatch => {
      localStorage.clear()
+
      dispatch({ type: "USER_LOGOUT" })
    }
