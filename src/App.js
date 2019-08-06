@@ -1,14 +1,16 @@
 import "./App.css";
 import "./views/containers/containers.css";
 import "./views/components/components.css";
-import "./views/pages/pages.css";
+import "views/pages/pages.css";
 
 import React from "react";
 
 import { Switch, Route } from "react-router-dom";
-import Pages from "./views/pages";
 import Nav from "./views/components/Nav";
 import Header from "./views/components/Header";
+
+
+
 
 
 
