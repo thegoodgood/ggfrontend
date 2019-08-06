@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import TweetBody from "../components/Tweet"
+import Tweet from "../components/Tweet"
 import Popup from "../components/Popup";
 import {getTweetsAction,  getTopicTweetsAction, getNewsAction} from '../../redux/actions/tweetAdapter'
 
@@ -37,7 +37,7 @@ this.setState({...this.state, show: !this.state.show})
     return (
 
        <div className="TweetsContainer">
-         {this.props.tweets.map(tweet =>  <TweetBody setCurrentTweet={this.setTweet}
+         {this.props.tweets.map(tweet =>  <Tweet setCurrentTweet={this.setTweet}
            key={tweet.id} currentTweet={this.state.currentTweet} {...tweet} />
          )}
        { this.state.show ?
@@ -53,7 +53,6 @@ this.setState({...this.state, show: !this.state.show})
 }
 
   const mapStateToProps= state=> {
-
     return {
       tweets: state.tweets
     };

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import TweetBody from './Tweet';
+import Tweet from './Tweet';
 
 class TweetsContainer extends React.Component {
 
@@ -14,7 +14,7 @@ class TweetsContainer extends React.Component {
 
   render() {
     let tweets = this.props.tweetsList.map(tweet=> {
-      return <TweetBody {...tweet} />
+      return <Tweet {...tweet} />
     })
     // console.log(this.props);
     return (

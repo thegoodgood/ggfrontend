@@ -43,7 +43,7 @@ import React from 'react'
     )
   }
 
-  const TweetBody = (props) => {
+  const Tweet = (props) => {
 
     return(
       <TweetBox>
@@ -66,4 +66,4 @@ import React from 'react'
     )
   }
 
-export default TweetBody
+export default Tweet

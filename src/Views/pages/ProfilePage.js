@@ -4,35 +4,23 @@ import { connect } from 'react-redux'
 import {withRouter } from 'react-router-dom'
 import {getCurrentUserAction } from "../../redux/actions/userAdapter.js"
 import withAuth from '../../redux/hocs/withAuth'
-
-
-
+import Tweet from '../components/Tweet'
 
 class ProfilePage extends React.Component {
-
-  // componentDidMount() {
-  //   if (localStorage.token) {
-  //     console.log("found a token");
-  //     console.log(this.props.currentUser);
-  //     console.log(this.props);
-  //   }
-  // }
 
   handleClick = e=> {
     let c = this.props.getCurrentUser(this.props.user)
     console.log(c);
-    // console.log(this.props.currentUser);
+
   }
 
  render(){
-
-    return (
-      <div>
-      <h1> {this.props.currentUser ? `hello ${this.props.username}` : 'Getting your profile...'} </h1>
-
-    </div>
-  )
-  }
+   return (
+     <div>
+      <h1> {this.props.currentUser ? `hello ${this.props.user.username}` : 'Getting your profile...'} </h1>
+     </div>
+   )
+ }
 }
 
 
@@ -49,13 +37,6 @@ const mapDispatchToProps = (dispatch) => {
     getCurrentUser: getCurrentUserAction
   }
 }
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     add_one: (num) => dispatch({type: "ADD_ONE", payload: num})
-//   }
-// }
-// {
-//   currentUser: getCurrentUserAction
-// }
+
 
 export default withAuth(connect(mapStateToProps, mapDispatchToProps)(withRouter(ProfilePage)))

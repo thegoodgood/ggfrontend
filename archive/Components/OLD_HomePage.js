@@ -4,7 +4,7 @@ import HashTagContainer from './HashTagContainer'
 import TweetsContainer from './TweetsContainer'
 import Header from './Header.js';
 import Footer from './Footer';
-import TweetBody from './Tweet';
+import Tweet from './Tweet';
 import Nav from "../views/components/Nav";
 
 class HomePage extends React.Component {

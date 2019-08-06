@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import TweetBody from "../components/Tweet";
+import Tweet from "../components/Tweet";
 import {getTweetsAction, getTopicTweetsAction, getNewsAction} from '../../redux/actions/tweetAdapter'
 import {connect} from 'react-redux';
 
@@ -14,7 +14,7 @@ class TweetsContainer extends React.Component {
 
     return (
        <div className="TweetsContainer">
-  {this.props.tweets.map(tweet => <TweetBody key={tweet.id} {...tweet}/>)}
+  {this.props.tweets.map(tweet => <Tweet key={tweet.id} {...tweet}/>)}
 </div>
     )
   }

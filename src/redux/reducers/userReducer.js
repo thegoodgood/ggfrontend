@@ -22,6 +22,8 @@ const userReducer = (state = defaultState, action) => {
       return { ...state, loading: false };
     case "GET_PROFILE_REQUEST_SUCCESS":
     return {...action.user,currentUser:action.user, loading: false} // TODO: is a return necessary here? kevin didn't use it
+    case "ADD_TO_UPVOTED_TWEETS":
+      return { ...state, upvoted_tweets: [...state.upvoted_tweets, action.tweet] }; 
     default:
       return state;
   }

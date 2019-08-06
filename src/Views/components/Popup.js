@@ -1,48 +1,41 @@
 import React from "react";
 import PropTypes from "prop-types";
-import TweetBody from "../components/Tweet";
-import TweetContainer from "../containers/TweetsContainer"
-import {getTweetsAction,  getTopicTweetsAction, getNewsAction} from '../../redux/actions/tweetAdapter'
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
-import TweetEmbed from 'react-tweet-embed'
+import Tweet from "../components/Tweet";
+import TweetContainer from "../containers/TweetsContainer";
+import {
+  getTweetsAction,
+  getTopicTweetsAction,
+  getNewsAction
+} from "../../redux/actions/tweetAdapter";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import TweetEmbed from "react-tweet-embed";
 
-
-import {connect} from 'react-redux';
-
-
-
-
-
+import { connect } from "react-redux";
 
 class Popup extends React.Component {
-
   onToggle = event => {
-
-    this.props.onToggle && this.props.onToggle(event)
-
-  }
+    this.props.onToggle && this.props.onToggle(event);
+  };
 
   render() {
-
-    const tweet = this.props.currentTweet
-
-
+    const tweet = this.props.currentTweet;
 
     console.log(tweet);
     return (
-        <div id = "tweet" >
+      <div id="tweet">
+        <Modal isOpen={true}>
+          <TweetEmbed id={tweet.tweet_id} placeholder={"loading"} />
 
-           <Modal isOpen={true} >
-
-          <TweetEmbed id={tweet.tweet_id} placeholder={'loading'} />
-
-           <button onClick={event=> {this.onToggle(event)}}>
+          <button
+            onClick={event => {
+              this.onToggle(event);
+            }}
+          >
             close
-            </button>
-           </Modal>
-         </div>
-
-    )
+          </button>
+        </Modal>
+      </div>
+    );
   }
 }
 
@@ -55,22 +48,19 @@ class Popup extends React.Component {
 // <div>
 //   <button> onClick = event =>{this.onClose(event)} close</button>
 // </div>
-  const mapStateToProps= state=> {
-
-    return {
-      tweets: state.tweets
-    };
+const mapStateToProps = state => {
+  return {
+    tweets: state.tweets
   };
+};
 
-  const mapDispatchToProps = {
-    getTweets: getTweetsAction,
-    getTopic: getTopicTweetsAction,
-    getNews: getNewsAction,
+const mapDispatchToProps = {
+  getTweets: getTweetsAction,
+  getTopic: getTopicTweetsAction,
+  getNews: getNewsAction
+};
 
-    }
-
-
-  export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Popup);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Popup);

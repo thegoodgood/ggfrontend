@@ -1,4 +1,4 @@
-.main-body {
+aModalExample.main-body {
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -19,12 +19,6 @@
   vertical-align: middle;
 }
 
-.body {
-  /* max-width: 100%; */
-  float: left;
-  display: inline;
-}
-
 a {
   margin: 5px;
   font-size: 15px;
@@ -35,21 +29,29 @@ a {
 
 .topicsNav {
   border-bottom: 3px solid black;
-  width: 750px;
-  margin-top: 100px;
+  width: 70%;
+  margin-top: 80px;
   margin-bottom: 20px;
   margin-left: 10px;
-  padding-bottom: 40px;
-  font-size: 30px;
-  padding: 5px;
-
+  padding-bottom: 10px;
 }
 
 .topicsNav button {
-  margin: 5px;
-  padding: 20px;
+  /* margin: 5px; */
+  padding-top: 15px;
+  padding-right: 20px;
+  padding-bottom: 15px;
   background-color: white;
-  border: 1px solid black;
+  font-size: 20px;
+  border: none;
+  font-weight: bolder;
+}
+.topicsNav button:hover {
+  /* padding: 20px; */
+  background-color: orange;
+  font-size: 20px;
+  /* border: 1px solid black; */
+  font-weight: bolder;
 }
 
 
@@ -71,53 +73,50 @@ a {
     75% { background-color: purple; }
 
 }
-/* .hashTag:hover {
-  font-size: 1.3x;
-  font-weight: bold;
-     color: orange;
-     -webkit-animation: random 3s infinite;
-     animation: random 3s infinite;
-}
-@keyframes  random {
-    30% { color: red; }
-    30% { color: yellow; }
-    30% { color: green; }
-    60% { color: blue; }
-    75% { color: purple; }
-
-} */
 
 nav a {
   font-size: 18px;
   margin: 10px;
 }
+
+div.body {
+  max-width: 80%;
+  float: left;
+  display: inline;
+  word-wrap: normal;
+}
+
+
+
+
 img {
   margin-left: 10px;
   margin-top: 18px;
   border-radius: 50%;
-  width: 65px;
-  height: 65px;
+  width: 8%;
+  height: 8%;
   position: relative;
   float: left;
 }
 .tweet-body {
   /* display: flex; */
+
   float: left;
   flex-direction: column;
   vertical-align: middle;
   height: auto;
   background-color: white;
-  margin:5px 0 10px 0px;
+  margin:0px 0 10px 0px;
   padding: 2px;
   border: 1px solid grey;
   width: 100%;
 }
 
-.content {
+div.tweet.content {
   display: inline;
-  width: 100%;
+  /* width: 80%; */
+  /* text-align: justify; */
   height: fit-content;
-  margin-left: 80px;
   margin-top: -20px
 }
 .name {
@@ -179,4 +178,23 @@ img {
   border-radius: 20px;
   background: white;
 }
+}
+div.votes {
+  width: 10%;
+  /* display: flex; */
+  float: right;
+}
+
+.upvote, .downvote {
+  border: none;
+  float: right;
+  padding: none;
+  font-size: 26px;
+  background-color: white;
+  display: flex;
+}
+
+.upvote:hover, .downvote:hover {
+  font-size: 34px;
+  margin: 1px;
 }
