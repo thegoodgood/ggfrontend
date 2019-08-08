@@ -46,10 +46,7 @@ class userSettingsContainer extends React.Component {
           <label>Username</label>
           <input type="text" name="username" placeholder={this.props.user.username} onChange={this.handleChange} />
         </div>
-        <div className="inline field">
-        <label>Password</label>
-        <input type="text" placeholder="Change Password" onChange={this.handlePassword} />
-        </div>
+    
         <button className="ui button" type="submit">Update User Settings</button>
       </form>
        </div>
