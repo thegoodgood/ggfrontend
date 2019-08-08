@@ -5,13 +5,14 @@ html {
 .hashtagsContainer {
   width: 25%;
   border: 2px solid black;
-  border-radius: 20px;
+  /* border-radius: 10px; */
   font-style: italic;
   float: right;
   padding: 10px 5px 10px 5px;
   align-content: space-around;
   justify-content: center;
-      position: relative
+  position: relative;
+  box-shadow: 3px 4px 0px #4e57ef;
 }
 
 
@@ -20,9 +21,9 @@ html {
   margin: 3px;
 }
 .keyword:hover {
-  font-size: 1.1em;
-  font-weight: bold;
-     color: red;
+font-size: 1.1em;
+font-weight: bold;
+color: red;
 }
 
 .TweetsContainer {
@@ -31,16 +32,16 @@ html {
   width: 70%;
   height: 85%;
   overflow-y: scroll;
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 .UpvotedTweetsContainer {
   margin: 0px 5px 0px 5px;
   float: left;
   width: 70%;
-  height: 550px;
+  height: 520px;
   overflow-y: scroll;
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
 .visible-scrollbar, .invisible-scrollbar, .mostly-customized-scrollbar {
   display: block;
@@ -50,14 +51,14 @@ html {
 }
 
 body ::-webkit-scrollbar {
-    width: 20px;
-    height: 150px;
+  width: 20px;
+  height: 150px;
 }
 
 body ::-webkit-scrollbar-track {
-    height: 50px;
-    background: none;
-    border-radius: 0;
+  height: 50px;
+  background: none;
+  border-radius: 0;
 }
 
 body ::-webkit-scrollbar {

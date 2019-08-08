@@ -10,20 +10,19 @@ class HashtagsContainer extends React.Component {
     this.props.getHashtags()
       }
 
-      handleClick = event => {
-        this.props.getHashtagSearch(event.target.innerText)
-      }
+    handleClick = event => {
+      this.props.getHashtagSearch(event.target.innerText)
+    }
 
   render() {
 
     return (
       <div className = "hashtagsContainer">
       <h2>Trending Topics</h2>
-        {this.props.hashtags.map(hashtag => <p onClick={this.handleClick} key={hashtag.id} className= "keyword">{hashtag.keyword}</p>)}
+        {this.props.hashtags.map(hashtag => <p onClick={this.handleClick} key={hashtag.id} className= "keyword">#{hashtag.keyword}</p>)}
        </div>
     )
   }
-
 }
 
 
@@ -36,7 +35,6 @@ class HashtagsContainer extends React.Component {
   const mapDispatchToProps = {
     getHashtags: getHashtagsAction,
     getHashtagSearch: getHashtagSearchAction
-
   }
 
 

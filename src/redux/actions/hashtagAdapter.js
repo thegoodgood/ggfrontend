@@ -4,10 +4,11 @@ import {
   getHashtagsFailure
 } from "./hashtagActions";
 import { getTweetsSuccess, getTweetsFailure } from "./tweetActions";
-
+const url = "http://localhost:3000"
 export const getHashtagsAction = () => dispatch => {
   dispatch(getHashtagsStart());
-  return fetch("http://localhost:3000/hashtags")
+
+  return fetch(`${url}/hashtags`)
     .then(res => res.json())
     .then(hashtag => {
       dispatch(getHashtagsSuccess(hashtag));
@@ -19,14 +20,16 @@ export const getHashtagsAction = () => dispatch => {
 
 export const getHashtagSearchAction = hashtag => dispatch => {
   dispatch(getHashtagsStart());
-  return fetch("http://localhost:3000/get_hashtag_tweets", {
+  let keyword = hashtag.split("#")[1]
+  
+  return fetch(`${url}/get_hashtag_tweets`, {
     method: "POST",
     headers: {
       "Content-Type": "Application/json",
       Accept: "Application/json"
     },
     body: JSON.stringify({
-      keyword: hashtag
+      keyword: keyword
     })
   })
     .then(res => res.json())

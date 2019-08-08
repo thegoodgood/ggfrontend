@@ -17,7 +17,7 @@ class Nav extends Component {
     localStorage.clear()
     this.props.logout();
     const { history } = this.props;
-    history.push('/home');
+    history.push('/');
   };
 
   render() {

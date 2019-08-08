@@ -1,7 +1,8 @@
-import React from "react";
-import Popup from "../components/Popup";
-import { connect } from "react-redux";
-import { upvoteTweetAction, downvoteTweetAction } from "../../redux/actions/tweetAdapter";
+import React from "react"
+import Popup from "../components/Popup"
+import { connect } from "react-redux"
+import Moment from 'react-moment'
+import { upvoteTweetAction, downvoteTweetAction,deleteTweetAction } from "../../redux/actions/tweetAdapter"
 
 //Presentation components
 // Are concerned with how things look
@@ -12,12 +13,11 @@ import { upvoteTweetAction, downvoteTweetAction } from "../../redux/actions/twee
 class Tweet extends React.Component {
   handleClick = event => {
     if (this.props.setCurrentTweet) {
-      this.props.setCurrentTweet(this.props);
+      this.props.setCurrentTweet(this.props)
     }
-  };
+  }
 
   render() {
-    
     return (
       <div className="tweet-body" >
 
@@ -45,8 +45,8 @@ class Tweet extends React.Component {
             <div className="body" url={this.props.url}>
               <div className="inner-body">
                 <div className="name"> {this.props.user_name}</div>
-
                 <div className="handle">@{this.props.handle}</div>
+                <div className="created">Created <Moment fromNow>{this.props.created_at}</Moment></div>
               </div>
               <div className="tweet content">{this.props.content}</div>
 
@@ -54,23 +54,33 @@ class Tweet extends React.Component {
             </div>
           </div>
         </div>
-      </div>
-    );
+
+      {
+
+        this.props.currentUser ?
+          <button className="delete-btn" onClick = {this.handleDelete}>Delete Tweet </button>
+
+        : null
+      }
+</div>
+    )
   }
 }
 
 const mapStateToProps= (state) => {
   return {
-    upvotedTweetsId: state.user.upvoted_tweets.map(tweet=> tweet.id)
+    upvotedTweetsId: state.user.upvoted_tweets.map(tweet=> tweet.id),
+    currentUser: state.user.currentUser.id
   }
 }
 
 const mapDispatchToProps = {
   upvoteTweet: upvoteTweetAction,
-  downvoteTweet: downvoteTweetAction
-};
+  downvoteTweet: downvoteTweetAction,
+  deleteTweet: deleteTweetAction
+}
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Tweet);
+)(Tweet)

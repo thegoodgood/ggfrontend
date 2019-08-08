@@ -22,7 +22,7 @@ class TweetsContainer extends React.Component {
  }
 
  setTweet = (tweet) => {
-this.setState({...this.state, show: !this.state.show})
+   this.setState({...this.state, show: !this.state.show})
    this.setState({currentTweet: tweet})
  }
 

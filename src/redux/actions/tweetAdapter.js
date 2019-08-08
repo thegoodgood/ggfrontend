@@ -9,6 +9,8 @@ getTopic,  getTopicStart, getTopicSuccess, getTopicFailure
 
 import {BASE_URL} from '../../apiConstants'
 const tweets_url = "http://localhost:3000/tweets"
+const get_tweets_url = "http://localhost:3000/get_"
+const url = "http://localhost:3000"
 
 
 //--------------------------------------FETCH ALL TWEETS
@@ -24,11 +26,11 @@ const tweets_url = "http://localhost:3000/tweets"
         })
       }
 
-//-----------------------------------FETCH SOCIAL COMMENTARY TWEETS
+//-----------------------FETCH BY TOPIC TWEETS
       export const getTopicTweetsAction = (topic) => dispatch => {
         let new_topic = topic.toLowerCase().split(" ").join("")
         dispatch(getTopicTweetsStart(new_topic))
-          return fetch(`http://localhost:3000/${new_topic}`)
+          return fetch(`${get_tweets_url}${new_topic}`)
           .then(res => res.json())
           .then(tweets => {
             dispatch(getTweetsSuccess(tweets))
@@ -61,7 +63,6 @@ const tweets_url = "http://localhost:3000/tweets"
     .then(res => res.json())
     .then(data => {
       return data
-
     })
     .catch(error => {
       return error
@@ -73,11 +74,12 @@ export const getTopicAction = (topic) => dispatch => {
     dispatch(getTopic(topic))
     }
 
+
 // -----------------------------------GET THE CURRENT TWEET
 export const getCurrentTweetAction = (id) => dispatch => {
   dispatch({ type: "GET_CURRENT_TWEET_START" })
 
-  return fetch(`http://localhost:3000/tweets/${id}`, {
+  return fetch(`${tweets_url}/${id}`, {
     headers: {
       "Authorization": `Bearer ${localStorage.token}`
     }
@@ -93,8 +95,9 @@ export const getCurrentTweetAction = (id) => dispatch => {
 
 // ----------------------------------------DELETE THE CURRENT TWEET
 
-export const deleteTweetAction = (id) => dispatch => {
-  fetch(`http://localhost:3000/tweets/${id}`, {
+export const deleteTweetAction = (tweet) => dispatch => {
+  let id = tweet.id
+  fetch(`${tweets_url}/${id}`, {
     method: 'DELETE',
     headers: {
       "Authorization": `Bearer ${localStorage.token}`
@@ -104,13 +107,16 @@ export const deleteTweetAction = (id) => dispatch => {
   .then(tweet => {
     dispatch({ type: 'DELETE_TWEET', tweet: tweet })
   })
+  .catch(error => {
+    dispatch({ type: 'GET_CURRENT_TWEET_FAILURE', error: error })
+  })
 }
 
 // --------------------------------------------------UPVOTE A TWEET
 
 export const upvoteTweetAction = (id) => dispatch => {
   dispatch({ type: "GET_CURRENT_TWEET_START" })
-  fetch(`http://localhost:3000/tweets/${id}/upvote`, {
+  fetch(`${tweets_url}/${id}/upvote`, {
     method: 'POST',
     headers: {
       "Authorization": `Bearer ${localStorage.token}`
@@ -129,7 +135,7 @@ export const upvoteTweetAction = (id) => dispatch => {
 export const downvoteTweetAction = (id) => dispatch => {
   dispatch({ type: "GET_CURRENT_TWEET_START" })
 
-  return fetch(`http://localhost:3000/tweets/${id}/downvote`, {
+  return fetch(`${tweets_url}/${id}/downvote`, {
     method: 'POST',
     headers: {
       "Authorization": `Bearer ${localStorage.token}`
@@ -137,8 +143,6 @@ export const downvoteTweetAction = (id) => dispatch => {
   })
   .then(res => res.json())
   .then(tweet => {
-    console.log(tweet);
-    console.log('dowvote:', tweet)
     dispatch({ type: 'REMOVE_FROM_UPVOTED_TWEETS', tweet: tweet })
   })
 }
