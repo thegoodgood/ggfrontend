@@ -13,8 +13,24 @@ html {
   justify-content: center;
   position: relative;
   box-shadow: 3px 4px 0px #4e57ef;
+  cursor: pointer;
 }
 
+.userSettingsContainer {
+  width: 25%;
+  border: 2px solid black;
+  /* border-radius: 10px; */
+  font-style: italic;
+  float: right;
+  padding: 10px 5px 10px 5px;
+  align-content: space-around;
+  text-align: center;
+  /* position: relative; */
+  box-shadow: 3px 4px 0px #4e57ef;
+}
+div.inline.field {
+
+}
 
 .keyword {
   display: inline-flex;

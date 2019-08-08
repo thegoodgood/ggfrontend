@@ -8,7 +8,7 @@ import Tweet from "../components/Tweet";
 import Popup from "../components/Popup";
 import UpvotedTweetsContainer from "../containers/UpvotedTweetsContainer";
 
-import HashtagsContainer from "../containers/HashtagsContainer";
+import UserSettingsContainer from "../containers/UserSettingsContainer";
 import TopicsContainer from "../containers/TweetsContainer";
 import TopicsNav from "../components/TopicsNav";
 
@@ -22,7 +22,7 @@ class ProfilePage extends React.Component {
 
             <TopicsNav />
             <UpvotedTweetsContainer />
-            <HashtagsContainer />
+            <UserSettingsContainer />
           </div>
         ) : (
           <h1> Getting your profile... </h1>

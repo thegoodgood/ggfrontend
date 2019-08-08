@@ -1,10 +1,10 @@
 import {
   getTweetsStart, getTopicTweetsStart, getTweetsSuccess, getTweetsFailure
-} from './tweetActions';
+} from './tweetActions'
 
 import {
 getTopic,  getTopicStart, getTopicSuccess, getTopicFailure
-} from './topicActions';
+} from './topicActions'
 
 
 import {BASE_URL} from '../../apiConstants'

@@ -34,7 +34,7 @@ export class SignupPage extends Component { // eslint-disable-line react/prefer-
   render() {
     console.log(this.props);
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="ui form" onSubmit={this.handleSubmit}>
         <input type="text" value={this.state.username} onChange={this.handleChange} name="username" />
         <input type="password" value={this.state.password} onChange={this.handleChange} name="password" />
         <input type = "submit" value="Sign up" />

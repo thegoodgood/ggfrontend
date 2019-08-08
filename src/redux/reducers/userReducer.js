@@ -27,6 +27,8 @@ const userReducer = (state = defaultState, action) => {
     return { ...state, upvoted_tweets: [...state.upvoted_tweets, action.tweet]}
     case "REMOVE_FROM_UPVOTED_TWEETS":
       return {...state, upvoted_tweets: state.upvoted_tweets.filter((tweet)=>tweet.id !== action.tweet.id)}
+    case 'DELETE_TWEET':
+    return { ...state, upvoted_tweets: state.upvoted_tweets.filter(tweet => tweet.id !== action.tweet.id)}
     default:
       return state;
   }

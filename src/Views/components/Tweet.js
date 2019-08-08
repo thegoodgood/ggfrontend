@@ -17,6 +17,10 @@ class Tweet extends React.Component {
     }
   }
 
+    handleDelete = event => {
+      this.props.deleteTweet(this.props)
+    }
+
   render() {
     return (
       <div className="tweet-body" >
