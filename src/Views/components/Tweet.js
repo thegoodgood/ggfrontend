@@ -17,11 +17,12 @@ class Tweet extends React.Component {
   };
 
   render() {
+    
     return (
       <div className="tweet-body" >
 
         <div className="votes">
-        { !this.props.upvotes ?
+        { !this.props.upvotedTweetsId.includes(this.props.id) ?
           <button
             className="upvote"
             onClick={() => {
@@ -58,12 +59,18 @@ class Tweet extends React.Component {
   }
 }
 
+const mapStateToProps= (state) => {
+  return {
+    upvotedTweetsId: state.user.upvoted_tweets.map(tweet=> tweet.id)
+  }
+}
+
 const mapDispatchToProps = {
   upvoteTweet: upvoteTweetAction,
   downvoteTweet: downvoteTweetAction
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Tweet);

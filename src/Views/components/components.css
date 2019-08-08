@@ -34,6 +34,7 @@ a {
   margin-bottom: 20px;
   margin-left: 10px;
   padding-bottom: 10px;
+  text-align: right;
 }
 
 .topicsNav button {
@@ -230,4 +231,15 @@ div.nav {
 
 .login:hover, .logout:hover {
   border: orange solid 2px;
+}
+
+button {
+  background-color: orange;
+  border-radius: none;
+  font-size: 20px;
+  font-weight: bolder;
+}
+button:hover {
+  background-color: pink;
+  border: 1px solid orange;
 }

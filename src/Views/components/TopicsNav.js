@@ -1,6 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Tweet from "../components/Tweet";
+import { withRouter } from "react-router-dom";
 
 import {
   getTopicAction,
@@ -19,12 +19,19 @@ class TopicsNav extends React.Component {
     this.props.getTopicTweets(event.target.innerText);
   };
 
+  goHome = (event) => {
+    const { history } = this.props;
+    if(history) history.push('/');
+    console.log(history);
+  }
+
   render() {
     return (
       <div className="topicsNav">
         <button onClick={this.handleClick}> News</button>
         <button onClick={this.handleClick}>Social Commentary</button>
         <button onClick={this.handleClick}>On the Daily</button>
+        <button onClick={this.goHome}>All Tweets</button>
       </div>
     );
   }
@@ -40,7 +47,7 @@ const mapDispatchToProps = {
   getTopicTweets: getTopicTweetsAction
 };
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(TopicsNav);
+)(TopicsNav));

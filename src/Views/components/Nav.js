@@ -6,18 +6,18 @@ import {
   userLoginAction,
   userLogoutAction,
   getCurrentUserAction
-} from "../../redux/actions/userActions";
+} from "../../redux/actions/userAdapter";
 
 class Nav extends Component {
   componentDidMount() {
-    this.props.setCurrentUser();
+    this.props.getCurrentUser();
   }
 
   onLogout = () => {
     localStorage.clear()
     this.props.logout();
     const { history } = this.props;
-    if(history) history.push('/home');
+    history.push('/home');
   };
 
   render() {
@@ -48,12 +48,14 @@ class Nav extends Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.user
+    user: state.user,
+    username: state.user.username,
+    currentUser: state.user.currentUser
   };
 };
 
 const mapDispatchToProps = {
-  setCurrentUser: getCurrentUserAction,
+  getCurrentUser: getCurrentUserAction,
   logout: userLogoutAction
 };
 

@@ -15,25 +15,17 @@ class UpvotedTweetsContainer extends React.Component {
   }
 
   onToggle= (event) => {
-    // console.log(this.state.show);
     this.setState({
       ...this.state, show: !this.state.show })
-    //   console.log(this.state.currentTweet);
  }
 
  setTweet = (tweet) => {
 this.setState({...this.state, show: !this.state.show})
    this.setState({currentTweet: tweet})
-
-   console.log(tweet);
  }
 
-  componentDidMount() {
-    // this.props.getTweets()
-      }
-
   render() {
-console.log(this.props.upvotedTweets);
+
     return (
 
        <div className="UpvotedTweetsContainer">

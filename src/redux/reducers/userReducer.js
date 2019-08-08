@@ -9,7 +9,8 @@ import {
 
 const defaultState = {
   id: null,
-  username: ""
+  username: "",
+  upvoted_tweets:[]
 };
 
 const userReducer = (state = defaultState, action) => {

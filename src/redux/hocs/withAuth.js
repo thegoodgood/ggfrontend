@@ -10,7 +10,7 @@ export default function withAuth(WrappedComponent) {
         this.props.history.push("/login")
       }
       try {
-        this.props.setCurrentUser()
+        this.props.getCurrentUser()
         .catch(error => {
           this.props.history.push("/login")
         })
@@ -22,21 +22,22 @@ export default function withAuth(WrappedComponent) {
       }
 
       render() {
+        return (
 
-        return <WrappedComponent loggedIn={this.props.loggedIn}
-        {...this.props} />
-      }
+        <WrappedComponent />
+
+      )}
     }
 
-    const mapStateToProps = state => {
-      return {
-        loggedIn: state.loggedIn
-      }
-    }
+    // const mapStateToProps = state => {
+    //   return {
+    //     loggedIn: state.loggedIn
+    //   }
+    // }
 
     const mapDispatchToProps = {
-      setCurrentUser: getCurrentUserAction
+      getCurrentUser: getCurrentUserAction
     }
 
-    return withRouter(connect(mapStateToProps, mapDispatchToProps)(Something))
+    return withRouter(connect(null, mapDispatchToProps)(Something))
 }

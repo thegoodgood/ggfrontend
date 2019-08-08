@@ -11,8 +11,7 @@ import {BASE_URL} from '../../apiConstants'
 const tweets_url = "http://localhost:3000/tweets"
 
 
-//----------------------------------------FETCH TWEETS
-
+//--------------------------------------FETCH ALL TWEETS
   export const getTweetsAction = () => dispatch => {
     dispatch(getTweetsStart())
       return fetch(tweets_url)
@@ -25,8 +24,7 @@ const tweets_url = "http://localhost:3000/tweets"
         })
       }
 
-
-//-------------FETCH SOCIAL COMMENTARY TWEETS
+//-----------------------------------FETCH SOCIAL COMMENTARY TWEETS
       export const getTopicTweetsAction = (topic) => dispatch => {
         let new_topic = topic.toLowerCase().split(" ").join("")
         dispatch(getTopicTweetsStart(new_topic))
@@ -75,7 +73,7 @@ export const getTopicAction = (topic) => dispatch => {
     dispatch(getTopic(topic))
     }
 
-// ------------------------------------------------------GET THE CURRENT TWEET
+// -----------------------------------GET THE CURRENT TWEET
 export const getCurrentTweetAction = (id) => dispatch => {
   dispatch({ type: "GET_CURRENT_TWEET_START" })
 
@@ -93,13 +91,26 @@ export const getCurrentTweetAction = (id) => dispatch => {
   })
 }
 
+// ----------------------------------------DELETE THE CURRENT TWEET
 
-// ----------------------------------------------------UPVOTE A TWEET
+export const deleteTweetAction = (id) => dispatch => {
+  fetch(`http://localhost:3000/tweets/${id}`, {
+    method: 'DELETE',
+    headers: {
+      "Authorization": `Bearer ${localStorage.token}`
+    }
+  })
+  .then(res => res.json())
+  .then(tweet => {
+    dispatch({ type: 'DELETE_TWEET', tweet: tweet })
+  })
+}
+
+// --------------------------------------------------UPVOTE A TWEET
 
 export const upvoteTweetAction = (id) => dispatch => {
   dispatch({ type: "GET_CURRENT_TWEET_START" })
-
-  return fetch(`http://localhost:3000/tweets/${id}/upvote`, {
+  fetch(`http://localhost:3000/tweets/${id}/upvote`, {
     method: 'POST',
     headers: {
       "Authorization": `Bearer ${localStorage.token}`
@@ -128,7 +139,6 @@ export const downvoteTweetAction = (id) => dispatch => {
   .then(tweet => {
     console.log(tweet);
     console.log('dowvote:', tweet)
-    dispatch({ type: 'GET_CURRENT_TWEET_SUCCESS', tweet: tweet })
     dispatch({ type: 'REMOVE_FROM_UPVOTED_TWEETS', tweet: tweet })
   })
 }

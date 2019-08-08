@@ -7,7 +7,9 @@ import {
   getTopicTweetsAction,
   getNewsAction
 } from "../../redux/actions/tweetAdapter";
+
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+
 import TweetEmbed from "react-tweet-embed";
 
 import { connect } from "react-redux";
@@ -22,7 +24,9 @@ class Popup extends React.Component {
 
     console.log(tweet);
     return (
-      <div id="tweet">
+      <div id="tweet" onClick={event => {
+        this.onToggle(event);
+      }}>
         <Modal isOpen={true}>
           <TweetEmbed id={tweet.tweet_id} placeholder={"loading"} />
 

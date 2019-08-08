@@ -15,7 +15,7 @@ class TweetsContainer extends React.Component {
   }
 
   onToggle= (event) => {
-    
+
     this.setState({
       ...this.state, show: !this.state.show })
       console.log(this.state.currentTweet);
@@ -24,8 +24,6 @@ class TweetsContainer extends React.Component {
  setTweet = (tweet) => {
 this.setState({...this.state, show: !this.state.show})
    this.setState({currentTweet: tweet})
-
-   console.log(tweet);
  }
 
   componentDidMount() {
@@ -33,7 +31,6 @@ this.setState({...this.state, show: !this.state.show})
       }
 
   render() {
-console.log(this.props);
     return (
 
        <div className="TweetsContainer">
