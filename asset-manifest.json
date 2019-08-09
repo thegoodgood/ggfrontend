@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "https://thegoodgood.github.io/ggfrontend/static/css/main.efabf909.chunk.css",
-    "main.js": "https://thegoodgood.github.io/ggfrontend/static/js/main.cc6a32bb.chunk.js",
-    "main.js.map": "https://thegoodgood.github.io/ggfrontend/static/js/main.cc6a32bb.chunk.js.map",
-    "runtime~main.js": "https://thegoodgood.github.io/ggfrontend/static/js/runtime~main.de5656e4.js",
-    "runtime~main.js.map": "https://thegoodgood.github.io/ggfrontend/static/js/runtime~main.de5656e4.js.map",
-    "static/css/2.22a7d4ef.chunk.css": "https://thegoodgood.github.io/ggfrontend/static/css/2.22a7d4ef.chunk.css",
-    "static/js/2.23d3eab1.chunk.js": "https://thegoodgood.github.io/ggfrontend/static/js/2.23d3eab1.chunk.js",
-    "static/js/2.23d3eab1.chunk.js.map": "https://thegoodgood.github.io/ggfrontend/static/js/2.23d3eab1.chunk.js.map",
-    "index.html": "https://thegoodgood.github.io/ggfrontend/index.html",
-    "precache-manifest.3322657b93ceb40a5bb990f0612b2ac1.js": "https://thegoodgood.github.io/ggfrontend/precache-manifest.3322657b93ceb40a5bb990f0612b2ac1.js",
-    "service-worker.js": "https://thegoodgood.github.io/ggfrontend/service-worker.js",
-    "static/css/2.22a7d4ef.chunk.css.map": "https://thegoodgood.github.io/ggfrontend/static/css/2.22a7d4ef.chunk.css.map",
-    "static/css/main.efabf909.chunk.css.map": "https://thegoodgood.github.io/ggfrontend/static/css/main.efabf909.chunk.css.map",
-    "static/media/App.css": "https://thegoodgood.github.io/ggfrontend/static/media/springbanner.67c2ec81.jpeg"
+    "main.css": "https://thegoodgood.github.io/static/css/main.899a8cbc.chunk.css",
+    "main.js": "https://thegoodgood.github.io/static/js/main.eb8399b0.chunk.js",
+    "main.js.map": "https://thegoodgood.github.io/static/js/main.eb8399b0.chunk.js.map",
+    "runtime~main.js": "https://thegoodgood.github.io/static/js/runtime~main.4bc21690.js",
+    "runtime~main.js.map": "https://thegoodgood.github.io/static/js/runtime~main.4bc21690.js.map",
+    "static/css/2.22a7d4ef.chunk.css": "https://thegoodgood.github.io/static/css/2.22a7d4ef.chunk.css",
+    "static/js/2.23d3eab1.chunk.js": "https://thegoodgood.github.io/static/js/2.23d3eab1.chunk.js",
+    "static/js/2.23d3eab1.chunk.js.map": "https://thegoodgood.github.io/static/js/2.23d3eab1.chunk.js.map",
+    "index.html": "https://thegoodgood.github.io/index.html",
+    "precache-manifest.4608c69cdda97aa262d982e5e62a22ae.js": "https://thegoodgood.github.io/precache-manifest.4608c69cdda97aa262d982e5e62a22ae.js",
+    "service-worker.js": "https://thegoodgood.github.io/service-worker.js",
+    "static/css/2.22a7d4ef.chunk.css.map": "https://thegoodgood.github.io/static/css/2.22a7d4ef.chunk.css.map",
+    "static/css/main.899a8cbc.chunk.css.map": "https://thegoodgood.github.io/static/css/main.899a8cbc.chunk.css.map",
+    "static/media/App.css": "https://thegoodgood.github.io/static/media/springbanner.67c2ec81.jpeg"
   }
 }
