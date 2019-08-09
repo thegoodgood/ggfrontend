@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "https://thegoodgood.github.io/static/css/main.899a8cbc.chunk.css",
-    "main.js": "https://thegoodgood.github.io/static/js/main.eb8399b0.chunk.js",
-    "main.js.map": "https://thegoodgood.github.io/static/js/main.eb8399b0.chunk.js.map",
-    "runtime~main.js": "https://thegoodgood.github.io/static/js/runtime~main.4bc21690.js",
-    "runtime~main.js.map": "https://thegoodgood.github.io/static/js/runtime~main.4bc21690.js.map",
-    "static/css/2.22a7d4ef.chunk.css": "https://thegoodgood.github.io/static/css/2.22a7d4ef.chunk.css",
-    "static/js/2.23d3eab1.chunk.js": "https://thegoodgood.github.io/static/js/2.23d3eab1.chunk.js",
-    "static/js/2.23d3eab1.chunk.js.map": "https://thegoodgood.github.io/static/js/2.23d3eab1.chunk.js.map",
-    "index.html": "https://thegoodgood.github.io/index.html",
-    "precache-manifest.4608c69cdda97aa262d982e5e62a22ae.js": "https://thegoodgood.github.io/precache-manifest.4608c69cdda97aa262d982e5e62a22ae.js",
-    "service-worker.js": "https://thegoodgood.github.io/service-worker.js",
-    "static/css/2.22a7d4ef.chunk.css.map": "https://thegoodgood.github.io/static/css/2.22a7d4ef.chunk.css.map",
-    "static/css/main.899a8cbc.chunk.css.map": "https://thegoodgood.github.io/static/css/main.899a8cbc.chunk.css.map",
-    "static/media/App.css": "https://thegoodgood.github.io/static/media/springbanner.67c2ec81.jpeg"
+    "main.css": "/home/static/css/main.4b86a58e.chunk.css",
+    "main.js": "/home/static/js/main.6b1d84e8.chunk.js",
+    "main.js.map": "/home/static/js/main.6b1d84e8.chunk.js.map",
+    "runtime~main.js": "/home/static/js/runtime~main.0990ee84.js",
+    "runtime~main.js.map": "/home/static/js/runtime~main.0990ee84.js.map",
+    "static/css/2.22a7d4ef.chunk.css": "/home/static/css/2.22a7d4ef.chunk.css",
+    "static/js/2.23d3eab1.chunk.js": "/home/static/js/2.23d3eab1.chunk.js",
+    "static/js/2.23d3eab1.chunk.js.map": "/home/static/js/2.23d3eab1.chunk.js.map",
+    "index.html": "/home/index.html",
+    "precache-manifest.aad400eacfe93b600288a9cea250bfae.js": "/home/precache-manifest.aad400eacfe93b600288a9cea250bfae.js",
+    "service-worker.js": "/home/service-worker.js",
+    "static/css/2.22a7d4ef.chunk.css.map": "/home/static/css/2.22a7d4ef.chunk.css.map",
+    "static/css/main.4b86a58e.chunk.css.map": "/home/static/css/main.4b86a58e.chunk.css.map",
+    "static/media/App.css": "/home/static/media/springbanner.67c2ec81.jpeg"
   }
 }
