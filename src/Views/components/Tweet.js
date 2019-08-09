@@ -22,6 +22,7 @@ class Tweet extends React.Component {
     }
 
   render() {
+    console.log(this.props)
     return (
       <div className="tweet-body" >
 
@@ -54,14 +55,14 @@ class Tweet extends React.Component {
               </div>
               <div className="tweet content">{this.props.content}</div>
 
-              <div>{this.props.entities} </div>
+
             </div>
           </div>
         </div>
 
       {
 
-        this.props.currentUser ?
+        this.props.user.currentUser ?
           <button className="delete-btn" onClick = {this.handleDelete}>Delete Tweet </button>
 
         : null
@@ -74,7 +75,7 @@ class Tweet extends React.Component {
 const mapStateToProps= (state) => {
   return {
     upvotedTweetsId: state.user.upvoted_tweets.map(tweet=> tweet.id),
-    currentUser: state.user.currentUser.id
+    currentUser: state.user
   }
 }
 
@@ -88,3 +89,5 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Tweet)
+
+// <div>{this.props.entities} </div>
