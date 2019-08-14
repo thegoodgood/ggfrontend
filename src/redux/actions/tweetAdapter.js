@@ -55,19 +55,19 @@ const url = "http://localhost:3000"
 
 //-------------FETCH EMBEDDED TWEET
 
-  export const embedTweetAction = () => dispatch => {
-    fetch("https://publish.twitter.com/oembed?url=https%3A%2F%2Ftwitter.com%2FInterior%2Fstatus%2F507185938620219395'", {
-       mode: 'no-cors',
-       "X-Frame-Options": "allow-from"
-     })
-    .then(res => res.json())
-    .then(data => {
-      return data
-    })
-    .catch(error => {
-      return error
-      })
-  }
+  // export const embedTweetAction = () => dispatch => {
+  //   fetch("https://publish.twitter.com/oembed?url=https%3A%2F%2Ftwitter.com%2FInterior%2Fstatus%2F507185938620219395'", {
+  //      mode: 'no-cors',
+  //      "X-Frame-Options": "allow-from"
+  //    })
+  //   .then(res => res.json())
+  //   .then(data => {
+  //     return data
+  //   })
+  //   .catch(error => {
+  //     return error
+  //     })
+  // }
 
 //-----------------------UPDATE TOPIC IN THE STORE
 export const getTopicAction = (topic) => dispatch => {

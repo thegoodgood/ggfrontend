@@ -31,8 +31,8 @@ class TweetsContainer extends React.Component {
       }
 
   render() {
+    console.log(this.props);
     return (
-
        <div className="TweetsContainer">
          {this.props.tweets.map(tweet =>  <Tweet setCurrentTweet={this.setTweet}
            key={tweet.id} currentTweet={this.state.currentTweet} {...tweet} />

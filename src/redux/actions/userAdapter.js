@@ -61,7 +61,6 @@ export const userLoginAction = (username, password) => dispatch => {
 
 //-------------------------------------- CURRENT USER
    export const getCurrentUserAction = (user) => dispatch => {
-
      dispatch({type: "GET_PROFILE_REQUEST_START"})
 
      return fetch(`${url}/profile`, {

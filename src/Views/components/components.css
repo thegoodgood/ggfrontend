@@ -6,7 +6,7 @@ aModalExample.main-body {
   padding: 50px;
 
 }
-.inner-body {
+.tweet-row-one {
   display: grid;
   font-size: 16px;
   /* flex-direction: grid; */
@@ -43,14 +43,13 @@ a {
   padding-right: 20px;
   padding-bottom: 15px;
   background-color: white;
-  font-size: 20px;
+  font-size: 18px;
   border: none;
   font-weight: bolder;
 }
 .topicsNav button:hover, button.ui.button:hover {
   /* padding: 20px; */
   background-color: orange;
-  font-size: 20px;
   /* border: 1px solid black; */
   font-weight: bolder;
   color: black;
@@ -98,11 +97,12 @@ nav a {
   margin: 10px;
 }
 
-div.body {
+div.tweet-body {
   max-width: 80%;
   float: left;
   display: inline;
   word-wrap: normal;
+  margin-left: 22px;
 }
 
 
@@ -117,9 +117,7 @@ img {
   position: relative;
   float: left;
 }
-.tweet-body {
-  /* display: flex; */
-
+.tweet-card {
   float: left;
   flex-direction: column;
   vertical-align: middle;
@@ -131,17 +129,17 @@ img {
   width: 100%;
 }
 
-div.tweet.content {
+div.tweet-content {
   display: inline;
   /* width: 80%; */
   /* text-align: justify; */
+  font-size: 17px;
   height: fit-content;
-  margin-top: -20px
+  margin-top: -20px;
 }
 .name {
   font-weight: bold;
   padding-top: 20px;
-    margin-left: 20px;
   /* margin-top: -50px; */
   width: fit-content;
   /* height: 20px; */
@@ -291,4 +289,49 @@ button.all-tweets {
   text-shadow: 1px 1px 0 white;
   padding-left: 15px;
   padding-right: 15px;
+}
+.media_url {
+  width: 80%;
+  height:auto;
+  border-radius: 0;
+  display: block;
+  margin-left: 15%;
+  margin-right: 15%;
+  padding: 5px 0px 10px 0px;
+}
+
+/* Tweet url preview */
+.other a {
+  color: black;
+    font-size: 16px;
+}
+
+.microlink_card__content_title.sc-htpNat.bXmqbP {
+  font-size: 14px;
+  color: black;
+  cursor: pointer;
+}
+.microlink_card {
+margin-left: 10%;
+margin-right: 10%;
+width: 80%;
+height: auto;
+border:0px;
+border-width: 0px;
+}
+
+.cCSipI.cCSipI.cCSipI:hover {
+  color: black;
+  font-style: normal;
+  border-width: 0px;
+}
+
+.microlink_card__content_description.sc-bxivhb.eOrjhk  {
+  color: black;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.kILUk {
+  border-width: 0px;
 }

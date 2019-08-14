@@ -1,24 +1,25 @@
 
-import React, { Component, Fragment } from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import React, { Component, Fragment } from "react"
+import {withRouter} from "react-router-dom"
+import { connect } from "react-redux"
+import { Link } from "react-router-dom"
 import {
   userLoginAction,
   userLogoutAction,
   getCurrentUserAction
-} from "../../redux/actions/userAdapter";
+} from "../../redux/actions/userAdapter"
 
 class Nav extends Component {
   componentDidMount() {
-    this.props.getCurrentUser();
+    this.props.getCurrentUser()
   }
 
   onLogout = () => {
     localStorage.clear()
-    this.props.logout();
-    const { history } = this.props;
-    history.push('/');
-  };
+    this.props.logout()
+    const { history } = this.props
+    history.push('/')
+  }
 
   render() {
     return (
@@ -40,7 +41,7 @@ class Nav extends Component {
           </div>
         )}
       </div>
-    );
+    )
   }
 }
 
@@ -51,15 +52,15 @@ const mapStateToProps = state => {
     user: state.user,
     username: state.user.username,
     currentUser: state.user.currentUser
-  };
-};
+  }
+}
 
 const mapDispatchToProps = {
   getCurrentUser: getCurrentUserAction,
   logout: userLogoutAction
-};
+}
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(Nav);
+)(Nav))

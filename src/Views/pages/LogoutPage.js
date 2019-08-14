@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 import { connect } from 'react-redux'
 import { userLogoutAction } from '../../redux/actions/userAdapter'
@@ -9,15 +9,15 @@ import { userLogoutAction } from '../../redux/actions/userAdapter'
    componentDidMount() {
      if (localStorage.token) {
        this.props.logout()
-       // localStorage.clear()
+       localStorage.clear()
        this.props.history.push("/home")
      }
    }
    render() {
-console.log("logging out");
+console.log("logging out")
      return (
        <div></div>
-     );
+     )
    }
  }
 

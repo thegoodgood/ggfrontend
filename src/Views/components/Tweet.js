@@ -3,12 +3,8 @@ import Popup from "../components/Popup"
 import { connect } from "react-redux"
 import Moment from 'react-moment'
 import { upvoteTweetAction, downvoteTweetAction,deleteTweetAction } from "../../redux/actions/tweetAdapter"
-
-//Presentation components
-// Are concerned with how things look
-// Use props for displaying everything
-// Do not manage state at all
-// Don’t emit actions, but may take callbacks that do via props
+import ReactPlayer from 'react-player'
+import Microlink from '@microlink/react'
 
 class Tweet extends React.Component {
   handleClick = event => {
@@ -22,9 +18,18 @@ class Tweet extends React.Component {
     }
 
   render() {
-    console.log(this.props)
+    //     {(() => {
+    //       if (this.props.extended_entities_obj && this.props.extended_entities_obj.media.type === "video" ) {
+    //         return (<Microlink className="news other" url={this.props.extended_entities_obj.media.map(x=> x.video_info.variants[0].url)} />)
+    //   } else if (this.props.media_obj && this.props.media_obj.type  === "photo") {
+    //      if(this.props.extended_entities_obj && this.props.extended_entities_obj.media) {
+    //        return (<Microlink className="news other" url={this.props.extended_entities_obj.media.map(x=> x.video_info.variants[0].url)} />)
+    //      } else if(!this.props.extended_entities_obj){
+    // return (<img className="media_url" src={this.props.media_obj.media_url} />)
+    // }
+    // }
     return (
-      <div className="tweet-body" >
+      <div className="tweet-card" >
 
         <div className="votes">
         { !this.props.upvotedTweetsId.includes(this.props.id) ?
@@ -47,21 +52,27 @@ class Tweet extends React.Component {
         <div onClick={this.handleClick}>
           <div className="outer-body">
             <img src={this.props.profile_img_url} />
-            <div className="body" url={this.props.url}>
-              <div className="inner-body">
+            <div className="tweet-body" url={this.props.url}>
+              <div className="tweet-row-one">
                 <div className="name"> {this.props.user_name}</div>
                 <div className="handle">@{this.props.handle}</div>
                 <div className="created">Created <Moment fromNow>{this.props.created_at}</Moment></div>
               </div>
-              <div className="tweet content">{this.props.content}</div>
+              <div className="tweet-content">{this.props.content}</div>
 
+              {this.props.media_obj && this.props.media_obj.type  === "photo" ? <div><img className="media_url" src={this.props.media_obj.media_url} />
+              </div> : null
+          }
 
+            {
+              this.props.url_obj && !this.props.media_obj ? <div><Microlink className="news other" url={this.props.url_obj.expanded_url} size='large' />
+            </div> : null
+          }
             </div>
           </div>
         </div>
 
       {
-
         this.props.user.currentUser ?
           <button className="delete-btn" onClick = {this.handleDelete}>Delete Tweet </button>
 
@@ -73,9 +84,10 @@ class Tweet extends React.Component {
 }
 
 const mapStateToProps= (state) => {
+  // console.log(state);
   return {
     upvotedTweetsId: state.user.upvoted_tweets.map(tweet=> tweet.id),
-    currentUser: state.user
+    user: state.user
   }
 }
 
@@ -89,5 +101,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Tweet)
-
-// <div>{this.props.entities} </div>

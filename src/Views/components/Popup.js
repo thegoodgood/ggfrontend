@@ -21,14 +21,12 @@ class Popup extends React.Component {
 
   render() {
     const tweet = this.props.currentTweet;
-
-    console.log(tweet);
     return (
       <div id="tweet" onClick={event => {
         this.onToggle(event);
       }}>
         <Modal isOpen={true}>
-          <TweetEmbed id={tweet.tweet_id} placeholder={"loading"} />
+          <TweetEmbed id={tweet.tweet_id} placeholder={"loading..."} />
 
           <button
             onClick={event => {

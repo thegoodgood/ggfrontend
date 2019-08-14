@@ -29,9 +29,9 @@ this.setState({...this.state, show: !this.state.show})
     return (
 
        <div className="UpvotedTweetsContainer">
-         {this.props.upvotedTweets.map(tweet =>  <Tweet setCurrentTweet={this.setTweet}
+         {this.props.upvotedTweets ? this.props.upvotedTweets.map(tweet =>  <Tweet setCurrentTweet={this.setTweet}
            key={tweet.id} currentTweet={this.state.currentTweet} {...tweet} />
-         )}
+         ):null}
        { this.state.show ?
            <Popup
            {...this.state} currentTweet={this.state.currentTweet}   onToggle={this.onToggle}/>
