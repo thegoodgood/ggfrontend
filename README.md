@@ -32,4 +32,19 @@ You will also see any lint errors in the console.
 - [ ] Display popular memes
 - [ ] Get relevant news
 
+## Dependencies
+- react
+- microlink/react
+- react-dom
+- react-moment
+- react-redux
+- react-router-dom
+- react-twitter-embed
+– redux
+– redux-thunk
+- twitter
+
+## License
+MIT ©jasterix
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
