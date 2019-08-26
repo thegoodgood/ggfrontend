@@ -23,10 +23,10 @@ You will also see any lint errors in the console.
 
 ## Features
 
+- [x] No signup/login required to view tweets
 - [x] User signup / login
 - [x] Upvote / downvote tweets
 - [x] View tweet votes in user profile
-- [x] No signup/login required
 - [x] Click fetch tweets per hashtag
 - [ ] Display popular memes
 - [ ] Get relevant news
