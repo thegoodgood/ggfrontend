@@ -3,9 +3,9 @@
 
 Clone the source locally:
 <br>
-#### `git clone https://github.com/thegoodgood/home.git`
-<br>
-#### `cd thegoodgood`
+##### $ `git clone https://github.com/thegoodgood/home.git`
+
+##### $ `cd thegoodgood`
 
 ## Available Scripts
 
