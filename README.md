@@ -5,9 +5,9 @@
   
 ## Clone the source locally
 
-##### $ `git clone https://github.com/thegoodgood/home.git`
+##### $ `git clone https://github.com/thegoodgood/ggfrontend.git`
 
-##### $ `cd thegoodgood`
+##### $ `cd ggfrontend`
 
 ## Available Scripts
 
