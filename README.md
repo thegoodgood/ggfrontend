@@ -13,11 +13,11 @@
 
 In the project directory, you can run:
 
-### `npm install`
+##### `npm install`
 
 Installs project dependencies
 
-### `npm start`
+##### `npm start`
 Runs the app in the development mode.<br>
 Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
 
