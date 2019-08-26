@@ -1,8 +1,10 @@
 <h1 align="center">The Good Good</h1>
 <h3 align="center">The Good Good is a curated a Twitter API of popular Twitter accounts, trending hashtags and viral conversations taking place on Twitter</h3>
 
-Clone the source locally:
-<br>
+
+  
+## Clone the source locally
+
 ##### $ `git clone https://github.com/thegoodgood/home.git`
 
 ##### $ `cd thegoodgood`
