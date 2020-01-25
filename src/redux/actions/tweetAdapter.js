@@ -15,6 +15,7 @@ const url = "http://localhost:3000"
 
 //--------------------------------------FETCH ALL TWEETS
   export const getTweetsAction = () => dispatch => {
+    console.log("heroku")
     dispatch(getTweetsStart())
       return fetch('https://thegoodgood.herokuapp.com/')
       .then(res => res.json())
