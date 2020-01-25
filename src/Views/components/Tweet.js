@@ -29,39 +29,22 @@ class Tweet extends React.Component {
     // }
     // }
     return (
-      <div className="tweet-card" >
+      <div className="tweet-card grid" >
 
-        <div className="votes">
-        { !this.props.upvotedTweetsId.includes(this.props.id) ?
-          <button
-            className="upvote"
-            onClick={() => {
-              this.props.upvoteTweet(this.props.id)
-            }} style={{background:"darkseagreen"}}
-          >👍🏾</button>
-          :
-          <button
-            className="downvote"
-            onClick={() => {
-              this.props.downvoteTweet(this.props.id)
-            }}
-          >👎🏾</button>
-        }
-        </div>
-
+        <img className="profile-pic" src={this.props.profile_img_url} />
         <div onClick={this.handleClick}>
           <div className="outer-body">
-            <img src={this.props.profile_img_url} />
-            <div className="tweet-body" url={this.props.url}>
+
+            <div className="col-2 tweet-body" url={this.props.url}>
               <div className="tweet-row-one">
                 <div className="name"> {this.props.user_name}</div>
                 <div className="handle">@{this.props.handle}</div>
                 <div className="created">Created <Moment fromNow>{this.props.created_at}</Moment></div>
               </div>
               <div className="tweet-content">{this.props.content}</div>
-
-              {this.props.media_obj && this.props.media_obj.type  === "photo" ? <div><img className="media_url" src={this.props.media_obj.media_url} />
-              </div> : null
+              <div className="media">
+              {this.props.media_obj && this.props.media_obj.type  === "photo" ? <img className="media_url" src={this.props.media_obj.media_url} />
+               : null
           }
 
             {
@@ -69,15 +52,34 @@ class Tweet extends React.Component {
             </div> : null
           }
             </div>
+            </div>
           </div>
         </div>
-
+        <div>
+        <div className="votes">
+  { !this.props.upvotedTweetsId.includes(this.props.id) ?
+    <button
+      className="upvote"
+      onClick={() => {
+        this.props.upvoteTweet(this.props.id)
+      }} style={{background:"darkseagreen"}}
+    >👍🏾</button>
+    :
+    <button
+      className="downvote"
+      onClick={() => {
+        this.props.downvoteTweet(this.props.id)
+      }}
+    >👎🏾</button>
+  }
+  </div>
       {
         this.props.user.currentUser ?
           <button className="delete-btn" onClick = {this.handleDelete}>Delete Tweet </button>
 
         : null
       }
+</div>
 </div>
     )
   }

@@ -1,18 +1,23 @@
-aModalExample.main-body {
+ModalExample.main-body {
   display: flex;
   flex-direction: column;
   background-color: white;
   min-height: 80rem;
   padding: 50px;
-
 }
+
+.grid {
+  display: grid;
+  grid-template-columns: 12% auto 10%;
+  grid-auto-rows: minmax(60px, auto);
+  grid-gap: 10px;
+}
+
 .tweet-row-one {
   display: grid;
   font-size: 16px;
-  /* flex-direction: grid; */
   background-color: white;
   line-height: 1x;
-  /* padding-left: 10px; */
   margin:10px 0 10px 0px;
   width: 100%;
   display: inline-flex;
@@ -38,7 +43,6 @@ a {
 }
 
 .topicsNav button, button.ui.button {
-  /* margin: 5px; */
   padding-top: 15px;
   padding-right: 20px;
   padding-bottom: 15px;
@@ -48,9 +52,7 @@ a {
   font-weight: bolder;
 }
 .topicsNav button:hover, button.ui.button:hover {
-  /* padding: 20px; */
   background-color: orange;
-  /* border: 1px solid black; */
   font-weight: bolder;
   color: black;
 }
@@ -98,22 +100,18 @@ nav a {
 }
 
 div.tweet-body {
-  max-width: 80%;
+  max-width: 100%;
   float: left;
   display: inline;
   word-wrap: normal;
-  margin-left: 22px;
+  padding: 0;
 }
-
-
-
-
-img {
-  margin-left: 10px;
-  margin-top: 18px;
+.profile-pic {
   border-radius: 50%;
-  width: 8%;
-  height: 8%;
+  width: 100%;
+  height: auto;
+  padding: 5px;
+  margin-top: 20px;
   position: relative;
   float: left;
 }
@@ -131,18 +129,15 @@ img {
 
 div.tweet-content {
   display: inline;
-  /* width: 80%; */
-  /* text-align: justify; */
+  width: 100%;
   font-size: 17px;
   height: fit-content;
-  margin-top: -20px;
+  margin: -20px 0px 20px 0px;
 }
 .name {
   font-weight: bold;
-  padding-top: 20px;
-  /* margin-top: -50px; */
+  padding-top: 22px;
   width: fit-content;
-  /* height: 20px; */
   font-style: italic;
   display: flex;
 }
@@ -150,26 +145,21 @@ div.tweet-content {
 .handle {
   padding-top: 20px;
   margin-left: 20px;
-  /* margin-top: -50px; */
   width: fit-content;
-  /* height: 20px; */
   font-style: italic;
   display: flex;
   display: float-right;
 }
 
 .tweet {
-  /* margin-top: 7px; */
   width: 640px;
   display: grid;
   margin:10px 0px 10px 0;
   font-size: 16px;
-  /* flex-direction: grid; */
   background-color: white;
   line-height: 1x;
   padding-left: 10px;
   overflow-wrap: normal;
-
 
 .popup {
   position: fixed;
@@ -193,9 +183,10 @@ div.tweet-content {
   background: white;
 }
 }
+
 div.votes {
   margin: 10px 5px 0 0;
-  width: 10%;
+  width: 90%;
   float: right;
 }
 
@@ -203,21 +194,16 @@ div.votes {
   border: none;
   border-radius: 30%;
   float: right;
-  /* padding: none; */
   font-size: 26px;
-  /* background-color: white; */
-  /* display: flex; */
+  margin: 10%;
   background-color: rgba(255,18,18, 0.5);
-  /* padding-top: 5px;
-  padding-bottom: 5px; */
-  /* padding: 5px; */
-  width: 45px;
-  height: 45px;
+  padding: 5px;
+  width: 70%;
+  height: 1.7em;
 }
 
 .upvote:hover, .downvote:hover {
-  font-size: 34px;
-  margin: 1px;
+  border: 2px solid orange;
 }
 div.nav {
   float: right;
@@ -259,11 +245,16 @@ button:hover {
 .delete-btn {
   background-color: white;
   float: right;
-  font-size: 11px;
+  font-size: 12px;
   border: none;
   font-weight: normal;
-  text-align: right;
-  margin-top: 30px;
+  text-align: center;
+  margin: 30px 0 10px 0;
+}
+
+.delete-btn:hover {
+  font-size: 13px;
+  font-weight: bolder;
 }
 
 .created {
@@ -290,13 +281,10 @@ button.all-tweets {
   padding-left: 15px;
   padding-right: 15px;
 }
-.media_url {
-  width: 80%;
+img.media_url {
+  max-width: 70%;
   height:auto;
   border-radius: 0;
-  display: block;
-  margin-left: 15%;
-  margin-right: 15%;
   padding: 5px 0px 10px 0px;
 }
 
