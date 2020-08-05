@@ -1,12 +1,10 @@
 import React from "react";
-import Tweet from "../components/Tweet";
 import { withRouter } from "react-router-dom";
 
 import {
   getTopicAction,
   getTopicTweetsAction,
 } from "../../redux/actions/tweetAdapter";
-import { getTopic } from "../../redux/actions/topicActions";
 import { connect } from "react-redux";
 
 class TopicsNav extends React.Component {
@@ -19,7 +17,7 @@ class TopicsNav extends React.Component {
     this.props.getTopicTweets(event.target.innerText);
   };
 
-  goHome = (event) => {
+  goHome = () => {
     const { history } = this.props;
     if (history) history.push("/");
   };

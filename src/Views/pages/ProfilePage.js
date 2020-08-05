@@ -1,16 +1,12 @@
-import React from "react"
-import Nav from "../components/Nav"
-import { connect } from "react-redux"
-import { withRouter } from "react-router-dom"
-import { getCurrentUserAction } from "../../redux/actions/userAdapter.js"
-import withAuth from "../../redux/hocs/withAuth"
-import Tweet from "../components/Tweet"
-import Popup from "../components/Popup"
-import UpvotedTweetsContainer from "../containers/UpvotedTweetsContainer"
+import React from "react";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import { getCurrentUserAction } from "../../redux/actions/userAdapter.js";
+import withAuth from "../../redux/hocs/withAuth";
+import UpvotedTweetsContainer from "../containers/UpvotedTweetsContainer";
 
-import UserSettingsContainer from "../containers/UserSettingsContainer"
-import TopicsContainer from "../containers/TweetsContainer"
-import TopicsNav from "../components/TopicsNav"
+import UserSettingsContainer from "../containers/UserSettingsContainer";
+import TopicsNav from "../components/TopicsNav";
 
 class ProfilePage extends React.Component {
   render() {
@@ -25,8 +21,8 @@ class ProfilePage extends React.Component {
             <UserSettingsContainer />
           </div>
         ) : (
-          <h1> Getting your profile... </h1>
-        )}
+            <h1> Getting your profile... </h1>
+          )}
       </div>
     )
   }
@@ -40,7 +36,7 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = () => {
   return {
     getCurrentUser: getCurrentUserAction
   }
@@ -50,5 +46,5 @@ export default withAuth(
   connect(
     mapStateToProps,
     mapDispatchToProps
-  )(withRouter(ProfilePage))
+  )( withRouter( ProfilePage ) )
 )

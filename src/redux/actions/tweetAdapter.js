@@ -5,17 +5,10 @@ import {
   getTweetsFailure,
 } from "./tweetActions";
 
-import {
-  getTopic,
-  getTopicStart,
-  getTopicSuccess,
-  getTopicFailure,
-} from "./topicActions";
+import { getTopic } from "./topicActions";
 
-import { BASE_URL } from "../../apiConstants";
 const tweets_url = "https://thegoodgood.herokuapp.com/tweets";
 const get_tweets_url = "https://thegoodgood.herokuapp.com/get_";
-const url = "https://thegoodgood.herokuapp.com/";
 
 //--------------------------------------FETCH ALL TWEETS
 export const getTweetsAction = () => (dispatch) => {

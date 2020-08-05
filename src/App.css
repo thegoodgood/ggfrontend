@@ -10,8 +10,6 @@
   color: black;
 }
 
-
-
 .grid {
   display: grid;
   grid-auto-columns: minmax(60px, auto);
@@ -22,7 +20,7 @@
 
 /* header */
 .item:first-child {
-  grid-column: 1/span 5;
+  grid-column: 1 / span 5;
   background-image: url(./springbanner.jpeg);
 }
 .header {
@@ -44,17 +42,15 @@
 
 /* footer */
 .item:nth-child(4) {
-  grid-column: 1/ span 3;
+  grid-column: 1 / span 3;
 }
 
 /* ------------------------------------------ */
-
 
 .sidebar {
   max-width: 20%;
   /* float: right; */
   display: flex;
-
 }
 
 .App-logo {
@@ -74,7 +70,6 @@
   color: white;
 }
 
-
 div.main {
   width: 700px;
   align-self: center;
@@ -85,10 +80,10 @@ div.main {
 }
 
 .hashTag {
-    flex: auto;
-    float: left;
-    width: fit-content;
-    margin: 0 5px 5px 5px;
+  flex: auto;
+  float: left;
+  width: fit-content;
+  margin: 0 5px 5px 5px;
 }
 
 @keyframes App-logo-spin {
@@ -98,4 +93,12 @@ div.main {
   to {
     transform: rotate(360deg);
   }
+}
+
+/* temp location until resolved import error with views/pages/pages.css */
+.homePage,
+.profilePage {
+  /* width: 90%; */
+  height: 670px;
+  margin: 20px;
 }

@@ -1,7 +1,9 @@
+/* eslint-disable no-unused-vars */
 import {
   CREATE_USER,
   DELETE_USER,
   GET_USER,
+  // eslint-disable-next-line no-unused-vars
   USER_LOGIN,
   // USER_LOGOUT
 } from "../actions/types";

@@ -1,10 +1,9 @@
 
-import React, { Component, Fragment } from "react"
-import {withRouter} from "react-router-dom"
+import React, { Component } from "react"
+import { withRouter } from "react-router-dom"
 import { connect } from "react-redux"
 import { Link } from "react-router-dom"
 import {
-  userLoginAction,
   userLogoutAction,
   getCurrentUserAction
 } from "../../redux/actions/userAdapter"
@@ -18,7 +17,7 @@ class Nav extends Component {
     localStorage.clear()
     this.props.logout()
     const { history } = this.props
-    history.push('/')
+    history.push( '/' )
   }
 
   render() {
@@ -27,19 +26,19 @@ class Nav extends Component {
         {!!localStorage.token ? (
           //---------------WHAT A LOGGED IN USER SEES
           <div>
-          <Link to="" className="logout" onClick={this.onLogout}>Logout</Link>
+            <Link to="" className="logout" onClick={this.onLogout}>Logout</Link>
             <Link to="/">Home</Link>
             <Link to="/profile">Profile</Link>
 
           </div>
         ) : (
-          //---------------WHAT A GUEST SEES
-          <div className="nav">
-            <Link to="/">Home</Link>
-            <Link to="/signup">Sign Up</Link>
-            <Link to="/login" className="login" >Log in</Link>
-          </div>
-        )}
+            //---------------WHAT A GUEST SEES
+            <div className="nav">
+              <Link to="/">Home</Link>
+              <Link to="/signup">Sign Up</Link>
+              <Link to="/login" className="login" >Log in</Link>
+            </div>
+          )}
       </div>
     )
   }
@@ -60,7 +59,7 @@ const mapDispatchToProps = {
   logout: userLogoutAction
 }
 
-export default withRouter(connect(
+export default withRouter( connect(
   mapStateToProps,
   mapDispatchToProps
-)(Nav))
+)( Nav ) )

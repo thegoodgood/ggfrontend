@@ -1,14 +1,11 @@
 import React from "react";
-import PropTypes from "prop-types";
-import Tweet from "../components/Tweet";
-import TweetContainer from "../containers/TweetsContainer";
 import {
   getTweetsAction,
   getTopicTweetsAction,
   getNewsAction
 } from "../../redux/actions/tweetAdapter";
 
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { Modal } from "reactstrap";
 
 import TweetEmbed from "react-tweet-embed";
 
@@ -16,21 +13,21 @@ import { connect } from "react-redux";
 
 class Popup extends React.Component {
   onToggle = event => {
-    this.props.onToggle && this.props.onToggle(event);
+    this.props.onToggle && this.props.onToggle( event );
   };
 
   render() {
     const tweet = this.props.currentTweet;
     return (
       <div id="tweet" onClick={event => {
-        this.onToggle(event);
+        this.onToggle( event );
       }}>
         <Modal isOpen={true}>
           <TweetEmbed id={tweet.tweet_id} placeholder={"loading..."} />
 
           <button
             onClick={event => {
-              this.onToggle(event);
+              this.onToggle( event );
             }}
           >
             close
@@ -65,4 +62,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Popup);
+)( Popup );

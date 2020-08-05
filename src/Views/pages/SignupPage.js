@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from "react"
+import React, { Component } from "react"
 
 import { connect } from "react-redux"
 import {
@@ -21,25 +21,25 @@ class SignupPage extends Component {
   }
 
   handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value })
+    this.setState( { [ event.target.name ]: event.target.value } )
   }
 
   handleSubmit = e => {
     e.preventDefault()
-    this.props.signup(this.state.username, this.state.password)
-    .then(() => {
-      if (this.props.user) {
-        this.props.login(this.state.username, this.state.password)
-        .then(() => {
-          const { history } = this.props
-          history.push("/")
-        })
-      }
-    })
+    this.props.signup( this.state.username, this.state.password )
+      .then( () => {
+        if ( this.props.user ) {
+          this.props.login( this.state.username, this.state.password )
+            .then( () => {
+              const { history } = this.props
+              history.push( "/" )
+            } )
+        }
+      } )
   }
 
   render() {
-    console.log(this.props.user)
+    console.log( this.props.user )
     return (
       <form className="ui form" onSubmit={this.handleSubmit}>
         <input
@@ -75,4 +75,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SignupPage)
+)( SignupPage )
