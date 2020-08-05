@@ -39,7 +39,7 @@ class SignupPage extends Component {
   }
 
   render() {
-    console.log( this.props.user )
+
     return (
       <form className="ui form" onSubmit={this.handleSubmit}>
         <input

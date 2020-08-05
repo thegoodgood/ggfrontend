@@ -25,15 +25,30 @@ export const getTweetsAction = () => async ( dispatch ) => {
 
 //-----------------------FETCH BY TOPIC TWEETS
 export const getTopicTweetsAction = ( topic ) => async ( dispatch ) => {
-  let new_topic = topic.toLowerCase().split( " " ).join( "" );
-  dispatch( getTopicTweetsStart( new_topic ) );
-  try {
-    const res = await fetch( `${get_tweets_url}${new_topic}` );
-    const tweets = await res.json();
-    dispatch( getTweetsSuccess( tweets ) );
-  }
-  catch ( error ) {
-    dispatch( getTweetsFailure( error ) );
+
+  if ( topic !== "On the Daily" ) {
+    let new_topic = topic.toLowerCase().split( " " ).join( "" );
+    dispatch( getTopicTweetsStart( new_topic ) );
+    try {
+      const res = await fetch( `${get_tweets_url}${new_topic}` );
+      const tweets = await res.json();
+
+      dispatch( getTweetsSuccess( tweets ) );
+    } catch ( error ) {
+      dispatch( getTweetsFailure( error ) );
+    }
+  } else {
+    try {
+      const res = await fetch( `${tweets_url}` );
+      const tweets = await res.json()
+
+      const filteredTweets = tweets.filter( tweet => tweet.topic === "On the Daily" )
+      console.log( filteredTweets );
+      // 
+      dispatch( getTweetsSuccess( tweets ) );
+    } catch ( error ) {
+      dispatch( getTweetsFailure( error ) );
+    }
   }
 };
 

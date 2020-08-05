@@ -113,7 +113,6 @@ export const updateCurrentUserAction = ( newUsername, password, id ) => async (
     }
     const user = data;
     //argument of user
-    console.log( user );
     dispatch( {
       type: "GET_PROFILE_REQUEST_SUCCESS",
       user: user,

@@ -3,52 +3,52 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { userLoginAction } from '../../redux/actions/userAdapter'
 
- class LoginPage extends React.Component {
-   state = {
-     username: '',
-     password: ''
-   }
+class LoginPage extends React.Component {
+  state = {
+    username: '',
+    password: ''
+  }
 
-   componentDidMount() {
-     if (localStorage.token) {
-       this.props.history.push("/home")
-     }
-   }
+  componentDidMount() {
+    if ( localStorage.token ) {
+      this.props.history.push( "/home" )
+    }
+  }
 
-   handleSubmit = (e) => {
-     e.preventDefault()
-     this.props.login(this.state.username, this.state.password)
-       .then(()=> {
-         console.log(this.props.username);
-         this.props.history.push("/profile")
-       })
-   }
+  handleSubmit = ( e ) => {
+    e.preventDefault()
+    this.props.login( this.state.username, this.state.password )
+      .then( () => {
 
-   handleChange = (e) => {
-     this.setState({ [e.target.name]: e.target.value })
-   }
+        this.props.history.push( "/profile" )
+      } )
+  }
 
-   render() {
-     console.log(this.state.username);
-     return (
-       <form onSubmit={this.handleSubmit}>
-         <input type="text" value={this.state.username} onChange={this.handleChange} name="username" />
-         <input type="text" value={this.state.password} onChange={this.handleChange} name="password" />
-         <input type="submit" value="Log in!" />
-       </form>
-     );
-   }
- }
+  handleChange = ( e ) => {
+    this.setState( { [ e.target.name ]: e.target.value } )
+  }
 
- const mapStateToProps = state => {
+  render() {
 
-   return {
-     user: state.currentUser
-   }
- }
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <input type="text" value={this.state.username} onChange={this.handleChange} name="username" />
+        <input type="text" value={this.state.password} onChange={this.handleChange} name="password" />
+        <input type="submit" value="Log in!" />
+      </form>
+    );
+  }
+}
 
- const mapDispatchToProps = {
-     login: userLoginAction
- }
+const mapStateToProps = state => {
 
- export default connect(mapStateToProps, mapDispatchToProps)(LoginPage)
+  return {
+    user: state.currentUser
+  }
+}
+
+const mapDispatchToProps = {
+  login: userLoginAction
+}
+
+export default connect( mapStateToProps, mapDispatchToProps )( LoginPage )

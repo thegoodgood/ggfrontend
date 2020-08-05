@@ -10,7 +10,7 @@ import TopicsNav from "../components/TopicsNav";
 
 class ProfilePage extends React.Component {
   render() {
-    console.log( this.props )
+
     return (
       <div className="profilePage">
         {this.props.currentUser ? (
@@ -30,7 +30,7 @@ class ProfilePage extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log( state )
+
   return {
     user: state.user,
     currentUser: state.user.current_user
