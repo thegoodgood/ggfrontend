@@ -10,11 +10,12 @@ import TopicsNav from "../components/TopicsNav";
 
 class ProfilePage extends React.Component {
   render() {
+    console.log( this.props )
     return (
       <div className="profilePage">
         {this.props.currentUser ? (
           <div>
-            <h3>Welcome back, @{this.props.user.username}</h3>
+            <h3>Welcome back {this.props.currentUser.username}!</h3>
 
             <TopicsNav />
             <UpvotedTweetsContainer />
@@ -29,10 +30,10 @@ class ProfilePage extends React.Component {
 }
 
 const mapStateToProps = state => {
+  console.log( state )
   return {
     user: state.user,
-    username: state.user.username,
-    currentUser: state.user.currentUser
+    currentUser: state.user.current_user
   }
 }
 

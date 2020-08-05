@@ -1,157 +1,138 @@
-/* eslint-disable no-unused-vars */
-import {
-  CREATE_USER,
-  DELETE_USER,
-  GET_USER,
-  // eslint-disable-next-line no-unused-vars
-  USER_LOGIN,
-  // USER_LOGOUT
-} from "../actions/types";
-
 const url = "https://thegoodgood.herokuapp.com/";
 const users_url = `${url}/users`;
 
 //-------------------------------- NEW USER SIGNUP
-export const userSignupAction = (username, password) => (dispatch) => {
-  dispatch({ type: "SIGNUP_REQUEST_START" });
-  return fetch(`${url}/signup`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-    body: JSON.stringify({
-      username: username,
-      password: password,
-    }),
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      localStorage.token = data.token;
-      dispatch({ type: "SIGNUP_REQUEST_SUCCESS" });
-    })
-    .catch((error) => {
-      dispatch({ type: "SIGNUP_REQUEST_FAILURE", error: error });
-    });
+export const userSignupAction = ( username, password ) => async ( dispatch ) => {
+  dispatch( { type: "SIGNUP_REQUEST_START" } );
+  try {
+    const res = await fetch( `${url}/signup`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify( {
+        username: username,
+        password: password,
+      } ),
+    } );
+    const data = await res.json();
+    localStorage.token = data.token;
+    dispatch( { type: "SIGNUP_REQUEST_SUCCESS" } );
+  }
+  catch ( error ) {
+    dispatch( { type: "SIGNUP_REQUEST_FAILURE", error: error } );
+  }
 };
 
 //-------------------------------- USER LOGIN
-export const userLoginAction = (username, password) => (dispatch) => {
-  dispatch({ type: "LOGIN_REQUEST_START" });
-  return fetch(`${url}/login`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-    body: JSON.stringify({
-      username: username,
-      password: password,
-    }),
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      localStorage.token = data.token;
-      dispatch({ type: "LOGIN_REQUEST_SUCCESS" });
-    })
-    .catch((error) => {
-      dispatch({ type: "LOGIN_REQUEST_FAILURE", error: error });
-    });
+export const userLoginAction = ( username, password ) => async ( dispatch ) => {
+  dispatch( { type: "LOGIN_REQUEST_START" } );
+  try {
+    const res = await fetch( `${url}/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify( {
+        username: username,
+        password: password,
+      } ),
+    } );
+    const data = await res.json();
+    localStorage.token = data.token;
+    dispatch( { type: "LOGIN_REQUEST_SUCCESS" } );
+  }
+  catch ( error ) {
+    dispatch( { type: "LOGIN_REQUEST_FAILURE", error: error } );
+  }
 };
 
 //-------------------------------------- CURRENT USER
-export const getCurrentUserAction = (user) => (dispatch) => {
-  dispatch({ type: "GET_PROFILE_REQUEST_START" });
+export const getCurrentUserAction = ( user ) => async ( dispatch ) => {
+  dispatch( { type: "GET_PROFILE_REQUEST_START" } );
 
-  return fetch(`${url}/profile`, {
-    headers: {
-      Authorization: `Bearer ${localStorage.token}`,
-      Accept: "application/json",
-    },
-  })
-    .then((response) => {
-      if (response.status === 401) {
-        throw new Error("Unauthorized");
-      }
-      return response;
-    })
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.message === "Please log in") {
-        throw new Error("Unauthorized");
-      }
-      return data;
-    })
-    .then((user) => {
-      //argument of user
-      dispatch({
-        type: "GET_PROFILE_REQUEST_SUCCESS",
-        user: user,
-      });
-    })
-    .catch((error) => {
-      if (error.message === "Unauthorized") {
-        dispatch({
-          type: "GET_PROFILE_REQUEST_FAILURE",
-          error: error,
-        });
-      }
-    });
+  try {
+    const response = await fetch( `${url}/profile`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.token}`,
+        Accept: "application/json",
+      },
+    } );
+    if ( response.status === 401 ) {
+      throw new Error( "Unauthorized" );
+    }
+    const response_1 = response;
+    const data = await response_1.json();
+    if ( data.message === "Please log in" ) {
+      throw new Error( "Unauthorized" );
+    }
+    const user = data;
+    //argument of user
+    dispatch( {
+      type: "GET_PROFILE_REQUEST_SUCCESS",
+      user: user,
+    } );
+  }
+  catch ( error ) {
+    if ( error.message === "Unauthorized" ) {
+      dispatch( {
+        type: "GET_PROFILE_REQUEST_FAILURE",
+        error: error,
+      } );
+    }
+  }
 };
 
 //------------------------UPDATE CURRENT USER
-export const updateCurrentUserAction = (newUsername, password, id) => (
+export const updateCurrentUserAction = ( newUsername, password, id ) => async (
   dispatch
 ) => {
-  console.log(newUsername);
-  dispatch({ type: "GET_PROFILE_REQUEST_START" });
+  dispatch( { type: "GET_PROFILE_REQUEST_START" } );
 
-  return fetch(`${users_url}/${id}`, {
-    method: "PUT",
-    headers: {
-      Authorization: `Bearer ${localStorage.token}`,
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-    body: JSON.stringify({
-      username: newUsername,
-    }),
-  })
-    .then((response) => {
-      if (response.status === 401) {
-        throw new Error("Unauthorized");
-      }
-      return response;
-    })
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.message === "Please log in") {
-        throw new Error("Unauthorized");
-      }
-      return data;
-    })
-    .then((user) => {
-      //argument of user
-      console.log(user);
-      dispatch({
-        type: "GET_PROFILE_REQUEST_SUCCESS",
-        user: user,
-      });
-    })
-    .catch((error) => {
-      if (error.message === "Unauthorized") {
-        dispatch({
-          type: "GET_PROFILE_REQUEST_FAILURE",
-          error: error,
-        });
-      }
-    });
+  try {
+    const response = await fetch( `${users_url}/${id}`, {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${localStorage.token}`,
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify( {
+        username: newUsername,
+      } ),
+    } );
+    if ( response.status === 401 ) {
+      throw new Error( "Unauthorized" );
+    }
+    const response_1 = response;
+    const data = await response_1.json()
+    if ( data.message === "Please log in" ) {
+      throw new Error( "Unauthorized" );
+    }
+    const user = data;
+    //argument of user
+    console.log( user );
+    dispatch( {
+      type: "GET_PROFILE_REQUEST_SUCCESS",
+      user: user,
+    } );
+  }
+  catch ( error ) {
+    if ( error.message === "Unauthorized" ) {
+      dispatch( {
+        type: "GET_PROFILE_REQUEST_FAILURE",
+        error: error
+      } );
+    }
+  }
 };
 
 //-------------------------------- USER LOGOUT
 
-export const userLogoutAction = () => (dispatch) => {
+export const userLogoutAction = () => ( dispatch ) => {
   localStorage.clear();
 
-  dispatch({ type: "USER_LOGOUT" });
+  dispatch( { type: "USER_LOGOUT" } )
 };
